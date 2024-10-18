@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://c3bmr4vyapi3b"]
+
+[ext_resource type="Script" path="res://Characters/Enemy.cs" id="1_b7o0g"]
+[ext_resource type="Texture2D" uid="uid://d077472vdgpfb" path="res://sprites/knight.png" id="2_r5pla"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwh7u"]
+atlas = ExtResource("2_r5pla")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mtin"]
+atlas = ExtResource("2_r5pla")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j77oi"]
+atlas = ExtResource("2_r5pla")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q40fa"]
+atlas = ExtResource("2_r5pla")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqq0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwh7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mtin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j77oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q40fa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_soysy"]
+size = Vector2(13, 19)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(318, 162)
+collision_mask = 2
+script = ExtResource("1_b7o0g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hqq0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_soysy")
+
+[node name="DownLeft" type="RayCast2D" parent="."]
+position = Vector2(-10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="DownRight" type="RayCast2D" parent="."]
+position = Vector2(10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="Front" type="RayCast2D" parent="."]
+position = Vector2(0, 3)
+target_position = Vector2(-19, 0)
+collision_mask = 2
+collide_with_areas = true
