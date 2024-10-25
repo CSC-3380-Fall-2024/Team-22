@@ -3,13 +3,19 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
+	[Signal]
+	public delegate void playerDiedEventHandler();
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
 	private int health = 20;
 
     public override void _Process(double delta)
     {
-        if(isDead()) QueueFree();
+        if(isDead())
+		{ 
+			EmitSignal(SignalName.playerDied);
+			QueueFree();
+		}
     }
 
     public override void _PhysicsProcess(double delta)
@@ -53,7 +59,7 @@ public partial class Character : CharacterBody2D
 			}
 		}
 	}
-
+	
 	private bool isDead()
 	{
 		if (health <= 0) return true;
