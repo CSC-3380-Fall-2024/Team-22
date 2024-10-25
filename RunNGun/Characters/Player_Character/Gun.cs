@@ -6,11 +6,10 @@ public partial class Gun : Node2D
 	[Export] PackedScene bulletScene;
 	[Export] float bulletSpeed = 200f;
 	[Export] float bps = 10f;
-	[Export] float bulletDmg = 20f;
 
 	float fireRate;
-	int direction = 1;
 	float bulletDelay = .4f;
+	int direction = 1;
 	public override void _Ready()
 	{
 		fireRate = 1/bps;

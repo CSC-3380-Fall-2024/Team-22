@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://cr4tsj3rsk1ei"]
 
-[ext_resource type="Script" path="res://Bullet.cs" id="1_jo5vy"]
+[ext_resource type="Script" path="res://Characters/Player_Character/Bullet.cs" id="1_jo5vy"]
 [ext_resource type="Texture2D" uid="uid://d11jvo85ekqm5" path="res://sprites/coin.png" id="1_rb1h3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jaq0l"]
@@ -114,6 +114,5 @@ sprite_frames = SubResource("SpriteFrames_cafbb")
 shape = SubResource("CircleShape2D_ldgv7")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 autostart = true

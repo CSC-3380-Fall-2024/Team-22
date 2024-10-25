@@ -3,9 +3,11 @@ using System;
 
 public partial class Enemy : CharacterBody2D
 {
+	[Signal]
+	public delegate void damagingEventHandler();
 	const float SPEED = 100f;
+	private int health = 20;
 	private int moveDir = -1;
-
 	private RayCast2D[] downCasts = new RayCast2D[2];
 	private RayCast2D frontCast;
 
@@ -18,6 +20,8 @@ public partial class Enemy : CharacterBody2D
 
     public override void _Process(double delta)
     {
+		if (isDead()) QueueFree();
+		
 		if (shouldTurn()) 
 		{
 			moveDir *= -1;	
@@ -28,6 +32,7 @@ public partial class Enemy : CharacterBody2D
     public override void _PhysicsProcess(double delta)
     {	
 		Vector2 velocity = Velocity;
+		KinematicCollision2D hit;
 
 		if (!IsOnFloor())
 		{
@@ -37,6 +42,15 @@ public partial class Enemy : CharacterBody2D
 		velocity.X = SPEED*moveDir;
 		Velocity = velocity;
 		MoveAndSlide();
+
+		hit = GetLastSlideCollision();
+		if (hit != null)
+		{
+			if (hit.GetCollider().HasSignal("projectile"))
+			{
+				health -= 20;
+			}
+		}
     }
 
 	private bool shouldTurn()
@@ -54,6 +68,13 @@ public partial class Enemy : CharacterBody2D
 		}
 
 		return false;
+	}
+
+	private bool isDead()
+	{
+		if (health <= 0) return true;
+
+		else return false;
 	}
 
 }
