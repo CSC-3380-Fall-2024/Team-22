@@ -10,7 +10,7 @@ public partial class Restart : Button
         // Connect the button's pressed signal to the QuitGame function
         this.Pressed += RestartGame;
     }
-
+ 
     private void RestartGame()
     {
     GetTree().Paused = false;
