@@ -7,24 +7,28 @@ public partial class Character : CharacterBody2D
 	public delegate void playerDiedEventHandler();
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
+	private Vector2 velocity;
+	private Vector2 direction;
+	private KinematicCollision2D hit;
+	private int faceDirection = 1;
 	private int health = 20;
+	private bool hasJumpedTwice = false;
 
-    public override void _Process(double delta)
-    {
-        if(isDead())
-		{ 
-			EmitSignal(SignalName.playerDied);
-			QueueFree();
-		}
-    }
+  public override void _Process(double delta)
+  {
+      if(isDead())
+		  { 
+			  EmitSignal(SignalName.playerDied);
+			  QueueFree();
+		  }
+		  updateDirection();
+  }
 
-    public override void _PhysicsProcess(double delta)
+  public override void _PhysicsProcess(double delta)
 	{
-		Vector2 velocity = Velocity;
+    velocity = Velocity;
 		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		KinematicCollision2D hit;
+		direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 
 		// Add the gravity.
 		if (!IsOnFloor())
@@ -36,6 +40,7 @@ public partial class Character : CharacterBody2D
 		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
 		{
 			velocity.Y = JumpVelocity;
+			hasJumpedTwice = false;
 		}
 
 		if (direction != Vector2.Zero)
@@ -45,6 +50,24 @@ public partial class Character : CharacterBody2D
 		else
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+		}
+    
+		if (Input.IsActionJustPressed("ui_dash") && direction != Vector2.Zero)
+		{
+			velocity.X = Speed * 15 * faceDirection;
+		}
+
+		// Handle double jump
+		if (Input.IsActionJustPressed("ui_accept") && !IsOnFloor() && hasJumpedTwice == false)
+		{
+			hasJumpedTwice = true;
+			velocity.Y = JumpVelocity;
+		}
+
+		// Handle wall jump
+		if (IsOnWall() && hasJumpedTwice == true)
+		{
+			hasJumpedTwice = false;
 		}
 
 		Velocity = velocity;
@@ -59,8 +82,20 @@ public partial class Character : CharacterBody2D
 			}
 		}
 	}
-	
-	private bool isDead()
+  
+	public void updateDirection()
+	{
+		if(Input.IsPhysicalKeyPressed(Key.Right))
+		{
+			faceDirection = 1;
+		}
+		else if (Input.IsPhysicalKeyPressed(Key.Left))
+		{
+			faceDirection = -1;
+		}
+	}
+  
+  private bool isDead()
 	{
 		if (health <= 0) return true;
 

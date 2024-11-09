@@ -9,7 +9,5 @@ public partial class Bullet : RigidBody2D
 	{
 		Timer timer = (Timer)GetNode("Timer");
 		timer.Timeout += () => QueueFree();
-
-
 	}
 }
