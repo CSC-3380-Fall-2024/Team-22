@@ -1,5 +1,6 @@
 using Godot;
 using System;
+
 public partial class Character : CharacterBody2D
 {
 	[Signal]
@@ -13,17 +14,17 @@ public partial class Character : CharacterBody2D
 	private int health = 20;
 	private bool hasJumpedTwice = false;
 
-    public override void _Process(double delta)
-    {
-        if(isDead())
-		{ 
+  public override void _Process(double delta)
+  {
+    if(isDead())
+	  { 
 			EmitSignal(SignalName.playerDied);
 			QueueFree();
 		}
 		updateDirection();
-    }
+  }
 
-    public override void _PhysicsProcess(double delta)
+  public override void _PhysicsProcess(double delta)
 	{
 		velocity = Velocity;
 		// Get the input direction and handle the movement/deceleration.
@@ -51,6 +52,7 @@ public partial class Character : CharacterBody2D
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		}
+    
 		if (Input.IsActionJustPressed("ui_dash") && direction != Vector2.Zero)
 		{
 			velocity.X = Speed * 15 * faceDirection;
@@ -81,13 +83,7 @@ public partial class Character : CharacterBody2D
 			}
 		}
 	}
-	
-	private bool isDead()
-	{
-		if (health <= 0) return true;
-
-		else return false;
-	}
+  
 	public void updateDirection()
 	{
 		if(Input.IsPhysicalKeyPressed(Key.Right))
@@ -99,4 +95,11 @@ public partial class Character : CharacterBody2D
 			faceDirection = -1;
 		}
 	}
+  
+	private bool isDead()
+	{
+		if (health <= 0) return true;
+
+		else return false;
+	}  
 }

@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=4 uid="uid://brarre8tk71l3"]
+[gd_scene load_steps=11 format=4 uid="uid://brarre8tk71l3"]
 
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="1_kad05"]
 [ext_resource type="PackedScene" uid="uid://c3bmr4vyapi3b" path="res://Characters/Enemy.tscn" id="2_qo46h"]
 [ext_resource type="PackedScene" uid="uid://baild8wd4h110" path="res://Player.tscn" id="3_pq1tq"]
 [ext_resource type="PackedScene" uid="uid://g7kgiua8uowq" path="res://Checkpoint.tscn" id="4_tly4s"]
+[ext_resource type="Script" path="res://Levels/Tutorial/PauseManager.cs" id="5_uwsi8"]
+[ext_resource type="Script" path="res://Levels/Tutorial/ToggleVisibilityonPause.cs" id="6_cg3fh"]
+[ext_resource type="Script" path="res://Levels/Tutorial/Restart.cs" id="7_7rca3"]
+[ext_resource type="Script" path="res://Levels/Tutorial/Quit.cs" id="8_gcpcy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awer6"]
 texture = ExtResource("1_kad05")
@@ -198,13 +202,59 @@ tile_map_data = PackedByteArray("AAABABQAAAAAAAAAAAACABQAAAAAAAAAAAADABQAAAAAAAA
 tile_set = SubResource("TileSet_v4i1c")
 collision_visibility_mode = 1
 
-[node name="Enemy" parent="." instance=ExtResource("2_qo46h")]
+[node name="Enemy" parent="." groups=["Persist"] instance=ExtResource("2_qo46h")]
 position = Vector2(385, 308)
 
-[node name="Character" parent="." instance=ExtResource("3_pq1tq")]
+[node name="Character" parent="." groups=["Persist"] instance=ExtResource("3_pq1tq")]
 position = Vector2(320, 169)
 
-[node name="Checkpoint" parent="." instance=ExtResource("4_tly4s")]
+[node name="Checkpoint" parent="." groups=["Persist"] instance=ExtResource("4_tly4s")]
 position = Vector2(320, 169)
+
+[node name="Pause Manager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("5_uwsi8")
+
+[node name="Pause Menu" type="CanvasLayer" parent="."]
+process_mode = 2
+script = ExtResource("6_cg3fh")
+
+[node name="ColorRect" type="ColorRect" parent="Pause Menu"]
+offset_right = 1153.0
+offset_bottom = 646.0
+color = Color(0.345098, 0.345098, 0.345098, 0.494118)
+metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="Button" parent="Pause Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -105.0
+offset_right = 22.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+script = ExtResource("7_7rca3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="Pause Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -62.0
+offset_right = 10.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+script = ExtResource("8_gcpcy")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="playerDied" from="Character" to="Checkpoint" method="onPlayerDied"]
