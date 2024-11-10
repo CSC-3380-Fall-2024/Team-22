@@ -258,3 +258,4 @@ script = ExtResource("8_gcpcy")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="playerDied" from="Character" to="Checkpoint" method="onPlayerDied"]
+[connection signal="saveGame" from="Character" to="Checkpoint" method="SaveGame"]

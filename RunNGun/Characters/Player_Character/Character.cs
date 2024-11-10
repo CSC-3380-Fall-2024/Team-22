@@ -5,11 +5,17 @@ public partial class Character : CharacterBody2D
 {
 	[Signal]
 	public delegate void playerDiedEventHandler();
+	[Signal]
+	public delegate void saveGameEventHandler();
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
 	private Vector2 velocity;
 	private Vector2 direction;
+
+	// Used to see what object player collides with
 	private KinematicCollision2D hit;
+
+	// Current direction player is facing
 	private int faceDirection = 1;
 	private int health = 20;
 	private bool hasJumpedTwice = false;
@@ -81,9 +87,27 @@ public partial class Character : CharacterBody2D
 			{
 				health -= 20;
 			}
+			
+			if (hit.GetCollider().HasSignal("savePoint"))
+			{
+				EmitSignal(SignalName.saveGame);
+			}
 		}
 	}
   
+	public Godot.Collections.Dictionary<string, Variant> Save()
+	{
+		return new Godot.Collections.Dictionary<string, Variant>()
+		{
+			{ "Filename", SceneFilePath },
+			{ "Parent", GetParent().GetPath() },
+			{ "PosX", Position.X }, 
+			{ "PosY", Position.Y },
+			{ "FaceDirection", faceDirection},
+			{ "Health", health},
+		};
+	}
+
 	public void updateDirection()
 	{
 		if(Input.IsPhysicalKeyPressed(Key.Right))

@@ -3,13 +3,13 @@ using System;
 
 public partial class Gun : Node2D
 {
-	[Export] PackedScene bulletScene;
-	[Export] float bulletSpeed = 200f;
-	[Export] float bps = 10f;
+	[Export] public PackedScene bulletScene;
+	[Export] public float bulletSpeed = 200f;
+	[Export] public float bps = 10f;
 
-	float fireRate;
-	float bulletDelay = .4f;
-	int direction = 1;
+	private float fireRate;
+	private float bulletDelay = .4f;
+	private int direction = 1;
 	public override void _Ready()
 	{
 		fireRate = 1/bps;
