@@ -10,19 +10,16 @@ public partial class ToggleVisibilityonPause : CanvasLayer
 		if(!visibleOnPause) return;
 		Hide();
 	}
-private void ToogleVisibility(bool isPaused)
-{
-	if(visibleOnPause == isPaused)
+	private void ToogleVisibility(bool isPaused)
 	{
-		Show();
+		if(visibleOnPause == isPaused)
+		{
+			Show();
+		}
+		else
+		{
+			Hide();
+		}
 	}
-	else
-	{
-		Hide();
-	}
-
-	
-}
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	
 }

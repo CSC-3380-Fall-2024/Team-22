@@ -10,8 +10,7 @@ public partial class PauseManager : Node
 	private bool isPaused = false;
 	public override void _Ready()
 	{
-	Instance = this;
-	
+		Instance = this;
 	}
 
 	public override void _Input(InputEvent @event)
