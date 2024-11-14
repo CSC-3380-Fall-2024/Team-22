@@ -4,8 +4,6 @@ using System;
 public partial class DeathBarrier : Area2D
 {
 
-	[Export] public string NextLevelScenePath = "res://Levels/Tutorial/Main.tscn";
-
     public override void _Ready()
     {
        
@@ -17,7 +15,6 @@ public partial class DeathBarrier : Area2D
       
         if (body is Character)  
         {
-            // Load the next level scene.
             GetTree().ReloadCurrentScene();
         }
     }
