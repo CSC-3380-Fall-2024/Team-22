@@ -1,12 +1,17 @@
 using Godot;
 using System;
 
-public partial class Enemy : CharacterBody2D
+public partial class GunEnemy : CharacterBody2D
 {
+    [Export] public PackedScene bulletScene;
+	[Export] public float bulletSpeed = 200f;
+	[Export] public float bps = 1f;
 	// Marks node as being damaging to player
 	[Signal]
 	public delegate void damagingEventHandler();
 	private const float SPEED = 100f;
+    private float fireRate;
+	private float bulletDelay = .4f;
 	private int health = 20;
 	private int moveDir = -1;
 	private KinematicCollision2D hit;
@@ -19,6 +24,7 @@ public partial class Enemy : CharacterBody2D
 
     public override void _Ready()
     {
+        fireRate = 1/bps;
 		downCasts[0] = (RayCast2D)GetNode("DownLeft");
 		downCasts[1] = (RayCast2D)GetNode("DownRight");
 		frontCast = (RayCast2D)GetNode("Front");
@@ -34,6 +40,31 @@ public partial class Enemy : CharacterBody2D
 		}
 		// Flips collision detection direction
 		frontCast.TargetPosition = new Vector2(19*moveDir, 0);
+
+        if (bulletDelay > fireRate)
+		{
+			RigidBody2D bullet = (RigidBody2D)bulletScene.Instantiate();
+			bullet.GlobalPosition = GlobalPosition;
+
+			if (moveDir == -1)
+			{
+				bulletSpeed = -200f;
+			}
+			else if (moveDir == 1)
+			{
+				bulletSpeed = 200f;
+			}
+
+			bullet.LinearVelocity = bullet.Transform.X * bulletSpeed;
+
+			GetTree().Root.AddChild(bullet);
+
+			bulletDelay = 0f;
+		}
+		else
+		{
+			bulletDelay += (float)delta;
+		}
     }
 
     public override void _PhysicsProcess(double delta)
