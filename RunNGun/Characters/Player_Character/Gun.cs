@@ -6,7 +6,6 @@ public partial class Gun : Node2D
 	[Export] public PackedScene bulletScene;
 	[Export] public float bulletSpeed = 200f;
 	[Export] public float bps = 10f;
-
 	private float fireRate;
 	private float bulletDelay = .4f;
 	private int direction = 1;

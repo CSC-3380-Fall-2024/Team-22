@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://1rxnqr0jhpcb"]
+[gd_scene load_steps=14 format=4 uid="uid://1rxnqr0jhpcb"]
 
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="1_xd7b3"]
 [ext_resource type="PackedScene" uid="uid://c3bmr4vyapi3b" path="res://Characters/Enemy.tscn" id="2_byo84"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Levels/Tutorial/Restart.cs" id="7_sc4g6"]
 [ext_resource type="Script" path="res://Levels/Tutorial/Quit.cs" id="8_ti8kq"]
 [ext_resource type="Script" path="res://Levels/Tutorial/NextLevelPortal1.cs" id="9_if0i0"]
+[ext_resource type="PackedScene" uid="uid://csnpxtufau0pe" path="res://GunEnemy.tscn" id="10_of4hq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mb77"]
 texture = ExtResource("1_xd7b3")
@@ -277,5 +278,8 @@ script = ExtResource("9_if0i0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelPortal1"]
 position = Vector2(1071, 295)
 shape = SubResource("CircleShape2D_si8e6")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("10_of4hq")]
+position = Vector2(276, 316)
 
 [connection signal="playerDied" from="Character" to="Checkpoint" method="onPlayerDied"]
