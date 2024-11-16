@@ -87,6 +87,11 @@ public partial class GunEnemy : CharacterBody2D
 			{
 				health -= 20;
 			}
+
+			if (hit.GetCollider().HasSignal("leafBullet"))
+			{
+				health -= 10;
+			}
 		}
     }
 
