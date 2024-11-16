@@ -1,54 +1,54 @@
-[gd_scene load_steps=17 format=3 uid="uid://cr4tsj3rsk1ei"]
+[gd_scene load_steps=17 format=3 uid="uid://c2t5kxsqc82mq"]
 
-[ext_resource type="Script" path="res://Characters/Player_Character/Bullet.cs" id="1_jo5vy"]
-[ext_resource type="Texture2D" uid="uid://d11jvo85ekqm5" path="res://sprites/coin.png" id="1_rb1h3"]
+[ext_resource type="Script" path="res://LeafProjectile.cs" id="1_trosv"]
+[ext_resource type="Texture2D" uid="uid://d11jvo85ekqm5" path="res://sprites/coin.png" id="2_8y5j3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jaq0l"]
-atlas = ExtResource("1_rb1h3")
+atlas = ExtResource("2_8y5j3")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_886lq"]
-atlas = ExtResource("1_rb1h3")
+atlas = ExtResource("2_8y5j3")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_77hu3"]
-atlas = ExtResource("1_rb1h3")
+atlas = ExtResource("2_8y5j3")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pdcl0"]
-atlas = ExtResource("1_rb1h3")
+atlas = ExtResource("2_8y5j3")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1xpx"]
-atlas = ExtResource("1_rb1h3")
+atlas = ExtResource("2_8y5j3")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_74dye"]
-atlas = ExtResource("1_rb1h3")
+atlas = ExtResource("2_8y5j3")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_djkp8"]
-atlas = ExtResource("1_rb1h3")
+atlas = ExtResource("2_8y5j3")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gr8ib"]
-atlas = ExtResource("1_rb1h3")
+atlas = ExtResource("2_8y5j3")
 region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5d7hl"]
-atlas = ExtResource("1_rb1h3")
+atlas = ExtResource("2_8y5j3")
 region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npcbw"]
-atlas = ExtResource("1_rb1h3")
+atlas = ExtResource("2_8y5j3")
 region = Rect2(144, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dbpip"]
-atlas = ExtResource("1_rb1h3")
+atlas = ExtResource("2_8y5j3")
 region = Rect2(160, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7r8ba"]
-atlas = ExtResource("1_rb1h3")
+atlas = ExtResource("2_8y5j3")
 region = Rect2(176, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cafbb"]
@@ -98,14 +98,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ldgv7"]
 radius = 6.0
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Leaf" type="RigidBody2D"]
 position = Vector2(249, 218)
 collision_layer = 4
 collision_mask = 8
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("1_jo5vy")
+script = ExtResource("1_trosv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cafbb")
@@ -114,6 +114,6 @@ sprite_frames = SubResource("SpriteFrames_cafbb")
 shape = SubResource("CircleShape2D_ldgv7")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 1.5
 one_shot = true
 autostart = true

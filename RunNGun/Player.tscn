@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://baild8wd4h110"]
+[gd_scene load_steps=12 format=3 uid="uid://baild8wd4h110"]
 
 [ext_resource type="Script" path="res://Characters/Player_Character/Character.cs" id="1_vhtjn"]
 [ext_resource type="Texture2D" uid="uid://xiv3jecbbcjc" path="res://sprites/slime_green.png" id="2_ftfto"]
 [ext_resource type="Script" path="res://Characters/Player_Character/Gun.cs" id="3_y5hfn"]
 [ext_resource type="PackedScene" uid="uid://cr4tsj3rsk1ei" path="res://Characters/Player_Character/Bullet.tscn" id="4_u7gfe"]
+[ext_resource type="PackedScene" uid="uid://c2t5kxsqc82mq" path="res://LeafProjectile.tscn" id="5_p3jom"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrsgd"]
 size = Vector2(12, 8)
@@ -60,6 +61,7 @@ sprite_frames = SubResource("SpriteFrames_7ujpp")
 [node name="Gun" type="Node2D" parent="."]
 script = ExtResource("3_y5hfn")
 bulletScene = ExtResource("4_u7gfe")
+leafScene = ExtResource("5_p3jom")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)

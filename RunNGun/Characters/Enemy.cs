@@ -56,6 +56,11 @@ public partial class Enemy : CharacterBody2D
 			{
 				health -= 20;
 			}
+
+			if (hit.GetCollider().HasSignal("leafBullet"))
+			{
+				health -= 10;
+			}
 		}
     }
 

@@ -4,39 +4,36 @@ using System;
 public partial class Gun : Node2D
 {
 	[Export] public PackedScene bulletScene;
+	[Export] public PackedScene leafScene;
 	[Export] public float bulletSpeed = 200f;
 	[Export] public float bps = 10f;
+	public float rightSpeed;
+	public float leftSpeed;
 	private float fireRate;
 	private float bulletDelay = .4f;
-	private int direction = 1;
+	private int direction;
 	public override void _Ready()
 	{
+		direction = 1;
 		fireRate = 1/bps;
+		rightSpeed = bulletSpeed;
+		leftSpeed = bulletSpeed * -1;
 	}
 
 	public override void _Process(double delta)
 	{
 		gunDirection();
-		
+
 		if (Input.IsPhysicalKeyPressed(Key.Z) && bulletDelay > fireRate)
 		{
-			RigidBody2D bullet = (RigidBody2D)bulletScene.Instantiate();
-			bullet.GlobalPosition = GlobalPosition;
+			bps = 6f;
+			fireGun(bulletScene);
+		}
 
-			if (direction == -1)
-			{
-				bulletSpeed = -200f;
-			}
-			else if (direction == 1)
-			{
-				bulletSpeed = 200f;
-			}
-
-			bullet.LinearVelocity = bullet.Transform.X * bulletSpeed;
-
-			GetTree().Root.AddChild(bullet);
-
-			bulletDelay = 0f;
+		else if (Input.IsPhysicalKeyPressed(Key.X) && bulletDelay > fireRate)
+		{
+			bps = 3f;
+			fireGun(leafScene);
 		}
 		else
 		{
@@ -54,5 +51,27 @@ public partial class Gun : Node2D
 		{
 			direction = -1;
 		}
+	}
+
+	private void fireGun(PackedScene bulletType)
+	{	
+		fireRate = 1/bps;
+		RigidBody2D bullet = (RigidBody2D)bulletType.Instantiate();
+		bullet.GlobalPosition = GlobalPosition;
+
+		if (direction == -1)
+		{
+			bulletSpeed = leftSpeed;
+		}
+		else if (direction == 1)
+		{
+			bulletSpeed = rightSpeed;
+		}
+
+		bullet.LinearVelocity = bullet.Transform.X * bulletSpeed;
+
+		GetTree().Root.AddChild(bullet);
+
+		bulletDelay = 0f;
 	}
 }
