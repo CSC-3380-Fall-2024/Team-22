@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cowr0wq51mssg"]
+[gd_scene load_steps=19 format=4 uid="uid://cowr0wq51mssg"]
 
 [ext_resource type="Script" path="res://Levels/Tutorial/DialogueManager.cs" id="1_0or3h"]
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="1_xowth"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Levels/Tutorial/Quit.cs" id="7_y30bk"]
 [ext_resource type="Script" path="res://Levels/Tutorial/NextPortal3.cs" id="8_k08bf"]
 [ext_resource type="Script" path="res://Levels/Tutorial/InterfaceManager.cs" id="9_7tu2r"]
-[ext_resource type="PackedScene" uid="uid://bb7tn28yidhc5" path="res://InterfaceSelection.tscn" id="11_v8cpu"]
+[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/interface_selection.tscn" id="10_2cb4n"]
 [ext_resource type="Script" path="res://Levels/Tutorial/NPC.cs" id="12_8cxsy"]
 [ext_resource type="Texture2D" uid="uid://bvbrcexlj71kc" path="res://icon.svg" id="13_ussh2"]
 
@@ -203,6 +203,9 @@ sources/0 = SubResource("TileSetAtlasSource_a4gpj")
 [sub_resource type="CircleShape2D" id="CircleShape2D_ex535"]
 radius = 16.0312
 
+[sub_resource type="Resource" id="Resource_vmpat"]
+metadata/__load_path__ = "res://InterfaceSelection.tscn"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpgib"]
 size = Vector2(33, 34)
 
@@ -290,10 +293,10 @@ text = "Thanks for Playing!
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true
 light_mask = 0
-offset_left = -596.0
-offset_top = -451.0
-offset_right = 3447.0
-offset_bottom = 1127.0
+offset_left = -648.0
+offset_top = -463.0
+offset_right = 3395.0
+offset_bottom = 1115.0
 color = Color(0, 0.536595, 0.344837, 1)
 
 [node name="NextPortal3" type="Area2D" parent="."]
@@ -315,7 +318,7 @@ offset_top = -0.16803
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_0or3h")
-InterfaceSelectableObject = ExtResource("11_v8cpu")
+InterfaceSelectableObject = SubResource("Resource_vmpat")
 
 [node name="Panel" type="Panel" parent="InterfaceManager/DialogueManager"]
 visible = false
@@ -375,6 +378,9 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
+[node name="InterfaceSelection" parent="InterfaceManager/DialogueManager/Panel/HBoxContainer" instance=ExtResource("10_2cb4n")]
+layout_mode = 2
+
 [node name="NPC" type="CharacterBody2D" parent="."]
 position = Vector2(264, 504)
 script = ExtResource("12_8cxsy")
@@ -391,5 +397,3 @@ texture = ExtResource("13_ussh2")
 [node name="Character" parent="." groups=["Persist"] instance=ExtResource("2_um6aj")]
 position = Vector2(83, 482)
 collision_mask = 3
-
-[connection signal="playerDied" from="Checkpoint" to="Checkpoint" method="onPlayerDied"]
