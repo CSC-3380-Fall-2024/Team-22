@@ -7,7 +7,11 @@ public partial class Gun : Node2D
 	[Export] public PackedScene leafScene;
 	[Export] public float bulletSpeed = 200f;
 	[Export] public float bps = 10f;
+	
+	// speed of bullet when going right
 	public float rightSpeed;
+
+	//speed of bullet when going left
 	public float leftSpeed;
 	private float fireRate;
 	private float bulletDelay = .4f;

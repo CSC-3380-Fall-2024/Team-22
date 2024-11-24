@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://y06rhfxhs81o"]
+[gd_scene load_steps=15 format=4 uid="uid://y06rhfxhs81o"]
 
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="1_kad05"]
 [ext_resource type="PackedScene" uid="uid://c3bmr4vyapi3b" path="res://Characters/Enemy.tscn" id="2_qo46h"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Levels/Tutorial/Quit.cs" id="8_gcpcy"]
 [ext_resource type="PackedScene" uid="uid://csnpxtufau0pe" path="res://GunEnemy.tscn" id="9_kjk1k"]
 [ext_resource type="Script" path="res://Levels/Tutorial/NextPortal2.cs" id="10_rrdml"]
+[ext_resource type="PackedScene" uid="uid://x0xqg04gignx" path="res://Characters/Boss.tscn" id="11_pdw8w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lk2is"]
 texture = ExtResource("1_kad05")
@@ -293,3 +294,6 @@ script = ExtResource("10_rrdml")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextPortal2"]
 position = Vector2(2152, -24)
 shape = SubResource("CircleShape2D_t5t6n")
+
+[node name="Boss1" parent="." instance=ExtResource("11_pdw8w")]
+position = Vector2(139, 268)
