@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.ComponentModel; 
 
 public partial class NextPortal2 : Area2D
 {
