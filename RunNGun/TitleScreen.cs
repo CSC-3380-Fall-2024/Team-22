@@ -3,16 +3,13 @@ using System;
 
 public partial class TitleScreen : Control
 {
-	// When the button 'start exploring' is pressed
-	public void onSEPressed(){
-		GetTree().ChangeSceneToFile("res://Levels/Tutorial/Test Level.tscn");
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
 	}
-	
-	// When the button 'start conquering' is pressed
-	public void onSCPressed(){
-		GetTree().ChangeSceneToFile("res://Levels/Tutorial/Test Level.tscn");
-	}
-	public void onExitPressed(){
-		GetTree().Quit();
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
 	}
 }
