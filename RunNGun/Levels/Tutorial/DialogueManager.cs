@@ -66,7 +66,7 @@ public string DialogueHeader;
 
     public void WriteDialouge(NpcDialogue dialogue)
     {
-        foreach (Node item in GetNode<Node>("Panel/HBoxContainer").GetChildren())
+        foreach (var item in GetNode<Node>("Panel/HBoxContainer").GetChildren())
         {
             item.QueueFree();
         }
@@ -75,7 +75,7 @@ public string DialogueHeader;
         foreach(var item in dialogue.InterfaceSelectionObjects)
         {
            
-           PackedScene packedScene = GD.Load<PackedScene>("res://InterfaceSelection.tscn");
+        PackedScene packedScene = GD.Load<PackedScene>("res://Interface_Selection.tscn");
            InterfaceSelection interfaceSelection = packedScene?.Instantiate<InterfaceSelection>();
             interfaceSelection.interfaceSelectionObject = item;
             GetNode<HBoxContainer>("Panel/HBoxContainer").AddChild(interfaceSelection);
@@ -102,5 +102,9 @@ public string DialogueHeader;
         {
             WriteDialouge(npcDialogue[index]);
         }
+    }
+    public void setNPCDialogue()
+    {
+     InterfaceManager.dialogueManager.npcDialogue = npcDialogue;   
     }
 }
