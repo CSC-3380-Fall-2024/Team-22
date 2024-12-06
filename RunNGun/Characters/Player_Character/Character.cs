@@ -149,5 +149,23 @@ public partial class Character : CharacterBody2D
 		npc.setNPCDialogue();
 		InterfaceManager.dialogueManager.ShowDialogueElement();
 	}
+	else if (obj is NPC3)
+	{
+		NPC3 npc = obj as NPC3;
+		npc.setNPCDialogue();
+		InterfaceManager.dialogueManager.ShowDialogueElement();
+	}
+	else if (obj is NPC4)
+	{
+		NPC4 npc = obj as NPC4;
+		npc.setNPCDialogue();
+		InterfaceManager.dialogueManager.ShowDialogueElement();
+	}
+	else if (obj is NPC5)
+	{
+		NPC5 npc = obj as NPC5;
+		npc.setNPCDialogue();
+		InterfaceManager.dialogueManager.ShowDialogueElement();
+	}
 	}
 }
