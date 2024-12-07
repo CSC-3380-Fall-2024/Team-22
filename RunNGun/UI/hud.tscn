@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://buko8u8tohd3d"]
+
+[ext_resource type="Script" path="res://UI/Hud.cs" id="1_cgp44"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 42.0
+offset_bottom = 41.0
+script = ExtResource("1_cgp44")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 16.0
+offset_right = 242.0
+offset_bottom = 49.0
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 20.0
+offset_right = 446.0
+offset_bottom = 67.0
+text = "Level: 1"
+
+[node name="WeaponLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 24.0
+offset_right = 595.0
+offset_bottom = 65.0
+text = "Weapon: Gun"
