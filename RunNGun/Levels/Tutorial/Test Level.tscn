@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cf5jk6lfy5idb"]
+[gd_scene load_steps=15 format=4 uid="uid://cawa4110qxs6e"]
 
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="1_xd7b3"]
 [ext_resource type="PackedScene" uid="uid://c3bmr4vyapi3b" path="res://Characters/Enemy.tscn" id="2_byo84"]
