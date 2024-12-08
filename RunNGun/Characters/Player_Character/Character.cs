@@ -28,15 +28,6 @@ public partial class Character : CharacterBody2D
 			QueueFree();
 		}
 		updateDirection();
-	if(Input.IsActionJustPressed("ui_focus_next"))
-	{
-		if(GetNode<RayCast2D>("RayCastMid").IsColliding())
-		{
-			Node obj = (Node)GetNode<RayCast2D>("RayCastMid").GetCollider();
-			showNPCDialogue(obj);
-			
-		}
-	}
   }
 
   public override void _PhysicsProcess(double delta)
@@ -135,37 +126,38 @@ public partial class Character : CharacterBody2D
 
 		else return false;
 	}  
+
 	private void showNPCDialogue(Node obj)
 	{
-	if(obj is NPC)
-			{
-			NPC npc = obj as NPC;
-			npc.setNPCDialogue();
-			InterfaceManager.dialogueManager.ShowDialogueElement();
-			}	
-	else if (obj is NPC2)
-	{
-		NPC2 npc = obj as NPC2;
-		npc.setNPCDialogue();
-		InterfaceManager.dialogueManager.ShowDialogueElement();
-	}
-	else if (obj is NPC3)
-	{
-		NPC3 npc = obj as NPC3;
-		npc.setNPCDialogue();
-		InterfaceManager.dialogueManager.ShowDialogueElement();
-	}
-	else if (obj is NPC4)
-	{
-		NPC4 npc = obj as NPC4;
-		npc.setNPCDialogue();
-		InterfaceManager.dialogueManager.ShowDialogueElement();
-	}
-	else if (obj is NPC5)
-	{
-		NPC5 npc = obj as NPC5;
-		npc.setNPCDialogue();
-		InterfaceManager.dialogueManager.ShowDialogueElement();
-	}
+    if(obj is NPC)
+        {
+        NPC npc = obj as NPC;
+        npc.setNPCDialogue();
+        InterfaceManager.dialogueManager.ShowDialogueElement();
+        }	
+    else if (obj is NPC2)
+    {
+      NPC2 npc = obj as NPC2;
+      npc.setNPCDialogue();
+      InterfaceManager.dialogueManager.ShowDialogueElement();
+    }
+    else if (obj is NPC3)
+    {
+      NPC3 npc = obj as NPC3;
+      npc.setNPCDialogue();
+      InterfaceManager.dialogueManager.ShowDialogueElement();
+    }
+    else if (obj is NPC4)
+    {
+      NPC4 npc = obj as NPC4;
+      npc.setNPCDialogue();
+      InterfaceManager.dialogueManager.ShowDialogueElement();
+    }
+    else if (obj is NPC5)
+    {
+      NPC5 npc = obj as NPC5;
+      npc.setNPCDialogue();
+      InterfaceManager.dialogueManager.ShowDialogueElement();
+    }
 	}
 }

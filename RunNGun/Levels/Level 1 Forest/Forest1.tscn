@@ -1,11 +1,16 @@
-[gd_scene load_steps=9 format=4 uid="uid://ch2h0tsm2kxpw"]
+[gd_scene load_steps=20 format=4 uid="uid://ch2h0tsm2kxpw"]
 
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="1_3gm4b"]
 [ext_resource type="PackedScene" uid="uid://baild8wd4h110" path="res://Characters/Player_Character/Player.tscn" id="2_h0w51"]
 [ext_resource type="PackedScene" uid="uid://g7kgiua8uowq" path="res://Checkpoint.tscn" id="3_n55xx"]
 [ext_resource type="PackedScene" uid="uid://csnpxtufau0pe" path="res://GunEnemy.tscn" id="4_k4gd3"]
+[ext_resource type="Script" path="res://Characters/EnemyTest.cs" id="4_poofw"]
+[ext_resource type="Texture2D" uid="uid://d077472vdgpfb" path="res://sprites/knight.png" id="5_6c30w"]
 [ext_resource type="PackedScene" uid="uid://c3bmr4vyapi3b" path="res://Characters/Enemy.tscn" id="6_4tpwv"]
-[ext_resource type="PackedScene" uid="uid://d0elmuxc6a1vh" path="res://Characters/EnemyTest.tscn" id="6_pr72h"]
+[ext_resource type="Script" path="res://Levels/Tutorial/PauseManager.cs" id="8_6apek"]
+[ext_resource type="Script" path="res://Levels/Tutorial/ToggleVisibilityonPause.cs" id="9_3ay7d"]
+[ext_resource type="Script" path="res://Levels/Tutorial/Restart.cs" id="10_7yq56"]
+[ext_resource type="Script" path="res://Levels/Tutorial/Quit.cs" id="11_45spm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1hnpc"]
 texture = ExtResource("1_3gm4b")
@@ -193,6 +198,45 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 17
 sources/0 = SubResource("TileSetAtlasSource_1hnpc")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwh7u"]
+atlas = ExtResource("5_6c30w")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mtin"]
+atlas = ExtResource("5_6c30w")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j77oi"]
+atlas = ExtResource("5_6c30w")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q40fa"]
+atlas = ExtResource("5_6c30w")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqq0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwh7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mtin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j77oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q40fa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_soysy"]
+size = Vector2(350, 24)
+
 [node name="Forest1" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -204,30 +248,43 @@ tile_set = SubResource("TileSet_y4dqm")
 position = Vector2(668, 372)
 
 [node name="Checkpoint" parent="." groups=["Persist"] instance=ExtResource("3_n55xx")]
-position = Vector2(123, 383)
+position = Vector2(124, 379)
 
-[node name="EnemyTest" parent="." instance=ExtResource("6_pr72h")]
-visible = false
+[node name="Dbarrier1-F1" type="CharacterBody2D" parent="."]
 position = Vector2(1058, 506)
+collision_layer = 9
+collision_mask = 7
+script = ExtResource("4_poofw")
 
-[node name="CollisionShape2D" parent="EnemyTest" index="1"]
-position = Vector2(9.5, 3)
-
-[node name="EnemyTest" parent="EnemyTest" instance=ExtResource("6_pr72h")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dbarrier1-F1"]
 visible = false
-position = Vector2(2150.44, 660.364)
+sprite_frames = SubResource("SpriteFrames_hqq0b")
 
-[node name="CollisionShape2D" parent="EnemyTest/EnemyTest" index="1"]
-position = Vector2(95.0583, 4.06799)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dbarrier1-F1"]
+position = Vector2(8, 6)
+shape = SubResource("RectangleShape2D_soysy")
+
+[node name="DownLeft" type="RayCast2D" parent="Dbarrier1-F1"]
+position = Vector2(-10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="DownRight" type="RayCast2D" parent="Dbarrier1-F1"]
+position = Vector2(10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="Front" type="RayCast2D" parent="Dbarrier1-F1"]
+position = Vector2(0, 3)
+target_position = Vector2(-19, 0)
+collision_mask = 2
+collide_with_areas = true
 
 [node name="EnemyF1" parent="." groups=["Persist"] instance=ExtResource("6_4tpwv")]
 position = Vector2(1688.53, 383.442)
 
 [node name="EnemyF1-2" parent="." groups=["Persist"] instance=ExtResource("6_4tpwv")]
 position = Vector2(2178, 363)
-
-[node name="EnemyF1-3" parent="EnemyF1-2" groups=["Persist"] instance=ExtResource("6_4tpwv")]
-position = Vector2(859.58, 170.946)
 
 [node name="Character" parent="." groups=["Persist"] instance=ExtResource("2_h0w51")]
 position = Vector2(124, 376)
@@ -237,13 +294,62 @@ position = Vector2(3637, 484)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true
-offset_left = -29.0
-offset_top = -108.0
+offset_left = -903.0
+offset_top = -402.0
 offset_right = 4742.0
 offset_bottom = 1460.0
 color = Color(0, 0.292946, 0.0781167, 1)
 
-[connection signal="savePoint" from="Checkpoint" to="Checkpoint" method="_on_save_point"]
+[node name="Pause Manager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("8_6apek")
 
-[editable path="EnemyTest"]
-[editable path="EnemyTest/EnemyTest"]
+[node name="Pause Menu" type="CanvasLayer" parent="."]
+process_mode = 2
+script = ExtResource("9_3ay7d")
+
+[node name="ColorRect" type="ColorRect" parent="Pause Menu"]
+offset_right = 1153.0
+offset_bottom = 646.0
+color = Color(0.345098, 0.345098, 0.345098, 0.494118)
+metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="Button" parent="Pause Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -105.0
+offset_right = 22.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+script = ExtResource("10_7yq56")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="Pause Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -62.0
+offset_right = 10.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+script = ExtResource("11_45spm")
+metadata/_edit_use_anchors_ = true
+
+[node name="EnemyF1-3" parent="." groups=["Persist"] instance=ExtResource("6_4tpwv")]
+position = Vector2(3037.58, 533.946)
+
+[connection signal="playerDied" from="Checkpoint" to="Checkpoint" method="_on_player_died"]
+[connection signal="savePoint" from="Checkpoint" to="Checkpoint" method="_on_save_point"]
+[connection signal="playerDied" from="Character" to="Character" method="_on_player_died"]
+[connection signal="saveGame" from="Character" to="Character" method="_on_save_game"]
