@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="1_xd7b3"]
 [ext_resource type="PackedScene" uid="uid://c3bmr4vyapi3b" path="res://Characters/Enemy.tscn" id="2_byo84"]
-[ext_resource type="PackedScene" uid="uid://baild8wd4h110" path="res://Characters/Player_Character/Player.tscn" id="3_dw8mb"]
+[ext_resource type="PackedScene" uid="uid://baild8wd4h110" path="res://Player.tscn" id="3_dw8mb"]
 [ext_resource type="PackedScene" uid="uid://g7kgiua8uowq" path="res://Checkpoint.tscn" id="4_drf7n"]
 [ext_resource type="Script" path="res://Levels/Tutorial/PauseManager.cs" id="5_3ux33"]
 [ext_resource type="Script" path="res://Levels/Tutorial/ToggleVisibilityonPause.cs" id="6_c8fta"]
@@ -241,7 +241,7 @@ tile_set = SubResource("TileSet_v4i1c")
 position = Vector2(385, 308)
 
 [node name="Character" parent="." groups=["Persist"] instance=ExtResource("3_dw8mb")]
-position = Vector2(28, 311)
+position = Vector2(1331, 295)
 
 [node name="Checkpoint" parent="." groups=["Persist"] instance=ExtResource("4_drf7n")]
 position = Vector2(26, 312)
@@ -329,5 +329,4 @@ script = ExtResource("10_ke2vr")
 shape = SubResource("CircleShape2D_im24b")
 
 [connection signal="playerDied" from="Character" to="Checkpoint" method="onPlayerDied"]
-[connection signal="savePoint" from="Checkpoint" to="Checkpoint" method="_on_save_point"]
 [connection signal="body_entered" from="NextPortal1" to="NextPortal1" method="_on_body_entered"]
