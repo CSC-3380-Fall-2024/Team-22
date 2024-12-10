@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cowr0wq51mssg"]
+[gd_scene load_steps=16 format=4 uid="uid://cowr0wq51mssg"]
 
 [ext_resource type="Script" path="res://Levels/Tutorial/DialogueManager.cs" id="1_0or3h"]
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="1_xowth"]
@@ -10,9 +10,7 @@
 [ext_resource type="Script" path="res://Levels/Tutorial/Quit.cs" id="7_y30bk"]
 [ext_resource type="Script" path="res://Levels/Tutorial/NextPortal3.cs" id="8_k08bf"]
 [ext_resource type="Script" path="res://Levels/Tutorial/InterfaceManager.cs" id="9_7tu2r"]
-[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/interface_selection.tscn" id="10_2cb4n"]
-[ext_resource type="Script" path="res://Levels/Tutorial/NPC.cs" id="12_8cxsy"]
-[ext_resource type="Texture2D" uid="uid://bvbrcexlj71kc" path="res://icon.svg" id="13_ussh2"]
+[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/InterfaceSelection.tscn" id="10_2cb4n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a4gpj"]
 texture = ExtResource("1_xowth")
@@ -206,9 +204,6 @@ radius = 16.0312
 [sub_resource type="Resource" id="Resource_vmpat"]
 metadata/__load_path__ = "res://InterfaceSelection.tscn"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpgib"]
-size = Vector2(33, 34)
-
 [node name="Tutorial3" type="Node2D"]
 position = Vector2(-1, 0)
 
@@ -380,19 +375,6 @@ alignment = 1
 
 [node name="InterfaceSelection" parent="InterfaceManager/DialogueManager/Panel/HBoxContainer" instance=ExtResource("10_2cb4n")]
 layout_mode = 2
-
-[node name="NPC" type="CharacterBody2D" parent="."]
-position = Vector2(264, 504)
-script = ExtResource("12_8cxsy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
-position = Vector2(-0.5, -4)
-shape = SubResource("RectangleShape2D_kpgib")
-
-[node name="Sprite2D" type="Sprite2D" parent="NPC"]
-position = Vector2(0, -1)
-scale = Vector2(0.210938, 0.210938)
-texture = ExtResource("13_ussh2")
 
 [node name="Character" parent="." groups=["Persist"] instance=ExtResource("2_um6aj")]
 position = Vector2(83, 482)

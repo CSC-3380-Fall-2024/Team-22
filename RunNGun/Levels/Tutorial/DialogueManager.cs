@@ -75,7 +75,7 @@ public string DialogueHeader;
         foreach(var item in dialogue.InterfaceSelectionObjects)
         {
            
-           PackedScene packedScene = GD.Load<PackedScene>("res://InterfaceSelection.tscn");
+           PackedScene packedScene = GD.Load<PackedScene>("res://Levels/Tutorial/InterfaceSelection.tscn");
            InterfaceSelection interfaceSelection = packedScene?.Instantiate<InterfaceSelection>();
             interfaceSelection.interfaceSelectionObject = item;
             GetNode<HBoxContainer>("Panel/HBoxContainer").AddChild(interfaceSelection);

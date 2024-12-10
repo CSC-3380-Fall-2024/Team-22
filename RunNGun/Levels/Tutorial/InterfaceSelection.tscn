@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://8et7ufg3ws57"]
+
+[ext_resource type="Script" path="res://Levels/Tutorial/InterfaceSelection.cs" id="1_s8wri"]
+[ext_resource type="Texture2D" uid="uid://ba8isre5838lb" path="res://Levels/Tutorial/triangle2.png" id="2_1a0ot"]
+
+[node name="InterfaceSelection" type="Control"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 3
+anchor_right = 0.087
+anchor_bottom = 0.043
+offset_right = -7.22401
+offset_bottom = 0.136
+script = ExtResource("1_s8wri")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_right = 1.49
+anchor_bottom = 0.821
+offset_left = -49.9474
+offset_right = -49.9474
+offset_bottom = 0.0119991
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "test text"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13
+anchor_top = 0.07
+anchor_right = 0.349
+anchor_bottom = 0.857
+offset_left = 9.0526
+offset_top = -0.96
+offset_right = 9.1526
+offset_bottom = -0.996002
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.57319
+texture = ExtResource("2_1a0ot")
+stretch_mode = 3
