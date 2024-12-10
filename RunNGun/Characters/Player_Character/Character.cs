@@ -11,6 +11,15 @@ public partial class Character : CharacterBody2D
 	public const float JumpVelocity = -400.0f;
 	private Vector2 velocity;
 	private Vector2 direction;
+	private AnimatedSprite2D _animatedSprite;
+ 	public override void _Ready()
+    {
+        // Get reference to AnimatedSprite2D
+        _animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        // Set a default animation
+        _animatedSprite.Play("Idle");
+    }
+
 
 	// Used to see what object player collides with
 	private KinematicCollision2D hit;
@@ -28,6 +37,15 @@ public partial class Character : CharacterBody2D
 			QueueFree();
 		}
 		updateDirection();
+	if(Input.IsActionJustPressed("ui_focus_next"))
+	{
+		if(GetNode<RayCast2D>("RayCastMid").IsColliding())
+		{
+			Node obj = (Node)GetNode<RayCast2D>("RayCastMid").GetCollider();
+			showNPCDialogue(obj);
+			
+		}
+	}
   }
 
   public override void _PhysicsProcess(double delta)
@@ -53,6 +71,8 @@ public partial class Character : CharacterBody2D
 		if (direction != Vector2.Zero)
 		{
 			velocity.X = direction.X * Speed;
+			_animatedSprite.Play("walking");
+
 		}
 		else
 		{
@@ -126,38 +146,37 @@ public partial class Character : CharacterBody2D
 
 		else return false;
 	}  
-
 	private void showNPCDialogue(Node obj)
 	{
-    if(obj is NPC)
-        {
-        NPC npc = obj as NPC;
-        npc.setNPCDialogue();
-        InterfaceManager.dialogueManager.ShowDialogueElement();
-        }	
-    else if (obj is NPC2)
-    {
-      NPC2 npc = obj as NPC2;
-      npc.setNPCDialogue();
-      InterfaceManager.dialogueManager.ShowDialogueElement();
-    }
-    else if (obj is NPC3)
-    {
-      NPC3 npc = obj as NPC3;
-      npc.setNPCDialogue();
-      InterfaceManager.dialogueManager.ShowDialogueElement();
-    }
-    else if (obj is NPC4)
-    {
-      NPC4 npc = obj as NPC4;
-      npc.setNPCDialogue();
-      InterfaceManager.dialogueManager.ShowDialogueElement();
-    }
-    else if (obj is NPC5)
-    {
-      NPC5 npc = obj as NPC5;
-      npc.setNPCDialogue();
-      InterfaceManager.dialogueManager.ShowDialogueElement();
-    }
+	if(obj is NPC)
+			{
+			NPC npc = obj as NPC;
+			npc.setNPCDialogue();
+			InterfaceManager.dialogueManager.ShowDialogueElement();
+			}	
+	else if (obj is NPC2)
+	{
+		NPC2 npc = obj as NPC2;
+		npc.setNPCDialogue();
+		InterfaceManager.dialogueManager.ShowDialogueElement();
+	}
+	else if (obj is NPC3)
+	{
+		NPC3 npc = obj as NPC3;
+		npc.setNPCDialogue();
+		InterfaceManager.dialogueManager.ShowDialogueElement();
+	}
+	else if (obj is NPC4)
+	{
+		NPC4 npc = obj as NPC4;
+		npc.setNPCDialogue();
+		InterfaceManager.dialogueManager.ShowDialogueElement();
+	}
+	else if (obj is NPC5)
+	{
+		NPC5 npc = obj as NPC5;
+		npc.setNPCDialogue();
+		InterfaceManager.dialogueManager.ShowDialogueElement();
+	}
 	}
 }
