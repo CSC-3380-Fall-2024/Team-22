@@ -8,6 +8,7 @@ Visual Studio Code 1.95
 For continued development:
 
 Download the above software
+
 Download project files from github repository
 Run Godot
 Select Import from the project manager
@@ -30,4 +31,3 @@ Tab - Talk to NPC when standing next to them
 S/D - Move dialogue arrow left and right respectively when in dialogue menu
 F - Confirm dialogue choice
 *Interactable NPCs have a coin above their heads
-
