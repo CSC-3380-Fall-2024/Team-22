@@ -2,10 +2,14 @@
 
 Made using:
 
+
 Godot 4.3 .NET version
+
 Visual Studio Code 1.95
 
+
 For continued development:
+
 
 1.Download the above software
 
@@ -22,9 +26,12 @@ For continued development:
 
 To Run the Game:
 
+
 Open the RunNGun folder and run RunNGun.exe
 
+
 Controls:
+
 
 Z - Short range, higher damage weapon
 
