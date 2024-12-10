@@ -1,40 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://x0xqg04gignx"]
+[gd_scene load_steps=8 format=3 uid="uid://x0xqg04gignx"]
 
-[ext_resource type="Script" path="res://Characters/Boss1.cs" id="1_asf61"]
-[ext_resource type="Texture2D" uid="uid://d077472vdgpfb" path="res://sprites/knight.png" id="2_v7ntj"]
+[ext_resource type="Script" path="res://Characters/Boss.cs" id="1_yf2m6"]
+[ext_resource type="Texture2D" uid="uid://caryljhajm54d" path="res://sprites/treeBoss.png" id="2_hr2ni"]
 [ext_resource type="Script" path="res://Characters/Front.cs" id="3_utlx2"]
 [ext_resource type="PackedScene" uid="uid://c3bmr4vyapi3b" path="res://Characters/Enemy.tscn" id="4_av2e3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hwh7u"]
-atlas = ExtResource("2_v7ntj")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocwgf"]
+atlas = ExtResource("2_hr2ni")
+region = Rect2(0, 0, 320, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8mtin"]
-atlas = ExtResource("2_v7ntj")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j77oi"]
-atlas = ExtResource("2_v7ntj")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q40fa"]
-atlas = ExtResource("2_v7ntj")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hqq0b"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5bql"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hwh7u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8mtin")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j77oi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q40fa")
+"texture": SubResource("AtlasTexture_ocwgf")
 }],
 "loop": true,
 "name": &"default",
@@ -44,14 +23,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_soysy"]
 size = Vector2(49.5, 48.5)
 
-[node name="Boss1" type="CharacterBody2D"]
+[node name="Boss" type="CharacterBody2D"]
 position = Vector2(318, 162)
 collision_layer = 9
 collision_mask = 7
-script = ExtResource("1_asf61")
+script = ExtResource("1_yf2m6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_hqq0b")
+position = Vector2(-0.249994, -2.24999)
+scale = Vector2(0.148437, 0.148437)
+sprite_frames = SubResource("SpriteFrames_x5bql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_soysy")

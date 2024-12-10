@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://y06rhfxhs81o"]
+[gd_scene load_steps=22 format=4 uid="uid://y06rhfxhs81o"]
 
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="1_kad05"]
 [ext_resource type="PackedScene" uid="uid://c3bmr4vyapi3b" path="res://Characters/Enemy.tscn" id="2_qo46h"]
@@ -10,7 +10,8 @@
 [ext_resource type="Script" path="res://Levels/Tutorial/Quit.cs" id="8_gcpcy"]
 [ext_resource type="PackedScene" uid="uid://csnpxtufau0pe" path="res://GunEnemy.tscn" id="9_kjk1k"]
 [ext_resource type="Script" path="res://Levels/Tutorial/NextPortal2.cs" id="10_rrdml"]
-[ext_resource type="PackedScene" uid="uid://x0xqg04gignx" path="res://Characters/Boss.tscn" id="11_pdw8w"]
+[ext_resource type="Script" path="res://Characters/EnemyTest.cs" id="11_sul8i"]
+[ext_resource type="Texture2D" uid="uid://d077472vdgpfb" path="res://sprites/knight.png" id="12_0uq7i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lk2is"]
 texture = ExtResource("1_kad05")
@@ -201,6 +202,45 @@ sources/0 = SubResource("TileSetAtlasSource_lk2is")
 [sub_resource type="CircleShape2D" id="CircleShape2D_t5t6n"]
 radius = 18.0278
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsiof"]
+atlas = ExtResource("12_0uq7i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfmrs"]
+atlas = ExtResource("12_0uq7i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxd2u"]
+atlas = ExtResource("12_0uq7i")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwy4e"]
+atlas = ExtResource("12_0uq7i")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oegs4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsiof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfmrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxd2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwy4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gstvo"]
+size = Vector2(1991.31, 24)
+
 [node name="Main" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -295,5 +335,92 @@ script = ExtResource("10_rrdml")
 position = Vector2(2152, -24)
 shape = SubResource("CircleShape2D_t5t6n")
 
-[node name="Boss1" parent="." instance=ExtResource("11_pdw8w")]
-position = Vector2(139, 268)
+[node name="Dbarrier1-F1" type="CharacterBody2D" parent="."]
+position = Vector2(-203, 518)
+collision_layer = 9
+collision_mask = 7
+script = ExtResource("11_sul8i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dbarrier1-F1"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_oegs4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dbarrier1-F1"]
+position = Vector2(8, 6)
+shape = SubResource("RectangleShape2D_gstvo")
+
+[node name="DownLeft" type="RayCast2D" parent="Dbarrier1-F1"]
+position = Vector2(-10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="DownRight" type="RayCast2D" parent="Dbarrier1-F1"]
+position = Vector2(10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="Front" type="RayCast2D" parent="Dbarrier1-F1"]
+position = Vector2(0, 3)
+target_position = Vector2(-19, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Dbarrier1-F1" type="CharacterBody2D" parent="Dbarrier1-F1"]
+position = Vector2(1997, 0)
+collision_layer = 9
+collision_mask = 7
+script = ExtResource("11_sul8i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dbarrier1-F1/Dbarrier1-F1"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_oegs4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(8, 6)
+shape = SubResource("RectangleShape2D_gstvo")
+
+[node name="DownLeft" type="RayCast2D" parent="Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(-10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="DownRight" type="RayCast2D" parent="Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="Front" type="RayCast2D" parent="Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(0, 3)
+target_position = Vector2(-19, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Dbarrier1-F1" type="CharacterBody2D" parent="Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(1276, 45)
+collision_layer = 9
+collision_mask = 7
+script = ExtResource("11_sul8i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dbarrier1-F1/Dbarrier1-F1/Dbarrier1-F1"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_oegs4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dbarrier1-F1/Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(8, 6)
+shape = SubResource("RectangleShape2D_gstvo")
+
+[node name="DownLeft" type="RayCast2D" parent="Dbarrier1-F1/Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(-10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="DownRight" type="RayCast2D" parent="Dbarrier1-F1/Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="Front" type="RayCast2D" parent="Dbarrier1-F1/Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(0, 3)
+target_position = Vector2(-19, 0)
+collision_mask = 2
+collide_with_areas = true

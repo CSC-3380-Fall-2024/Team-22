@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7idmuptodvig"
-path="res://.godot/imported/nature-paltformer-tileset-16x16.png-9111af2de82aa7093fb1fa160a10afc6.ctex"
+uid="uid://d0p6n3i7cr5um"
+path="res://.godot/imported/fish man.png-a307a2718ba47830fe48c6ebb92a8ae2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/level5/nature-paltformer-tileset-16x16.png"
-dest_files=["res://.godot/imported/nature-paltformer-tileset-16x16.png-9111af2de82aa7093fb1fa160a10afc6.ctex"]
+source_file="res://sprites/fish man.png"
+dest_files=["res://.godot/imported/fish man.png-a307a2718ba47830fe48c6ebb92a8ae2.ctex"]
 
 [params]
 
