@@ -16,10 +16,7 @@ public partial class Checkpoint : Node2D
     }
     public void onPlayerDied()
 	{
-		player = (CharacterBody2D)playerScene.Instantiate();
-		player.GlobalPosition = GlobalPosition;
-		GetTree().Root.AddChild(player);
-		player.Connect(SignalName.playerDied, new Callable(this, MethodName.onPlayerDied));
+		GetTree().ReloadCurrentScene();  
 	}
 
     public override void _Process(double delta)
