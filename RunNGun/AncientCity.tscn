@@ -1,9 +1,18 @@
-[gd_scene load_steps=7 format=4 uid="uid://cqrnqad4ryguc"]
+[gd_scene load_steps=18 format=4 uid="uid://cqrnqad4ryguc"]
 
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="1_x22ef"]
 [ext_resource type="PackedScene" uid="uid://baild8wd4h110" path="res://Player.tscn" id="2_uvqea"]
 [ext_resource type="PackedScene" uid="uid://csnpxtufau0pe" path="res://GunEnemy.tscn" id="3_v6nj0"]
 [ext_resource type="PackedScene" uid="uid://c3bmr4vyapi3b" path="res://Characters/Enemy.tscn" id="4_on7ov"]
+[ext_resource type="Script" path="res://NPC's/NPC3.cs" id="5_osb36"]
+[ext_resource type="Texture2D" uid="uid://bvbrcexlj71kc" path="res://icon.svg" id="6_xyb0n"]
+[ext_resource type="Script" path="res://Levels/Tutorial/InterfaceManager.cs" id="7_wg2m0"]
+[ext_resource type="Script" path="res://Levels/Tutorial/DialogueManager.cs" id="8_2vq41"]
+[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/InterfaceSelection.tscn" id="9_mcfmu"]
+[ext_resource type="Script" path="res://Levels/Tutorial/PauseManager.cs" id="10_omep6"]
+[ext_resource type="Script" path="res://Levels/Tutorial/ToggleVisibilityonPause.cs" id="11_yyqlq"]
+[ext_resource type="Script" path="res://Levels/Tutorial/Restart.cs" id="12_7144c"]
+[ext_resource type="Script" path="res://Levels/Tutorial/Quit.cs" id="13_7vk8u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yamoi"]
 texture = ExtResource("1_x22ef")
@@ -191,6 +200,12 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 17
 sources/0 = SubResource("TileSetAtlasSource_yamoi")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ulbt0"]
+size = Vector2(33, 34)
+
+[sub_resource type="Resource" id="Resource_3ppjv"]
+metadata/__load_path__ = "res://InterfaceSelection.tscn"
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -260,3 +275,138 @@ position = Vector2(2021.67, 251.188)
 
 [node name="CharacterBody2D20" parent="." instance=ExtResource("4_on7ov")]
 position = Vector2(2250.16, 250.439)
+
+[node name="NPC3" type="CharacterBody2D" parent="."]
+position = Vector2(274, 318)
+script = ExtResource("5_osb36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC3"]
+position = Vector2(-0.5, -4)
+shape = SubResource("RectangleShape2D_ulbt0")
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC3"]
+position = Vector2(0, -1)
+scale = Vector2(0.210938, 0.210938)
+texture = ExtResource("6_xyb0n")
+
+[node name="InterfaceManager" type="CanvasLayer" parent="."]
+script = ExtResource("7_wg2m0")
+
+[node name="DialogueManager" type="Control" parent="InterfaceManager"]
+layout_mode = 3
+anchor_top = 0.866
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.16803
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("8_2vq41")
+InterfaceSelectableObject = SubResource("Resource_3ppjv")
+
+[node name="Panel" type="Panel" parent="InterfaceManager/DialogueManager"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="InterfaceManager/DialogueManager/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="InterfaceManager/DialogueManager/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.345
+offset_right = 1.0
+offset_bottom = -0.0150032
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Test NPC Name"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="InterfaceManager/DialogueManager/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 26.0
+offset_right = -20.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "ASDF"
+scroll_following = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InterfaceManager/DialogueManager/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = 0.575
+anchor_right = 1.0
+anchor_bottom = 0.943
+offset_left = -0.0640001
+offset_top = -0.0250397
+offset_right = -6.0
+offset_bottom = -0.0410614
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="InterfaceSelection" parent="InterfaceManager/DialogueManager/Panel/HBoxContainer" instance=ExtResource("9_mcfmu")]
+layout_mode = 2
+
+[node name="Pause Manager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("10_omep6")
+
+[node name="Pause Menu" type="CanvasLayer" parent="."]
+process_mode = 2
+visible = false
+script = ExtResource("11_yyqlq")
+
+[node name="ColorRect" type="ColorRect" parent="Pause Menu"]
+offset_right = 1153.0
+offset_bottom = 646.0
+color = Color(0.345098, 0.345098, 0.345098, 0.494118)
+metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="Button" parent="Pause Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -105.0
+offset_right = 22.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+script = ExtResource("12_7144c")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="Pause Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -62.0
+offset_right = 10.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+script = ExtResource("13_7vk8u")
+metadata/_edit_use_anchors_ = true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cc7xgbtoxdewn"]
 
-[ext_resource type="Texture2D" uid="uid://ddnns8hfyi0t7" path="res://IntoTheWoodsTitleImage.jpg" id="1_yrtqi"]
-[ext_resource type="FontFile" uid="uid://bbje047bpjki6" path="res://Pixelmax-Regular.otf" id="2_8novv"]
+[ext_resource type="Texture2D" uid="uid://dldo58ys6o4qu" path="res://IntoTheWoodsTitleImage.jpg" id="1_yrtqi"]
+[ext_resource type="FontFile" uid="uid://dion8o5m5d364" path="res://Pixelmax-Regular.otf" id="2_8novv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i54wg"]
 texture = ExtResource("1_yrtqi")
