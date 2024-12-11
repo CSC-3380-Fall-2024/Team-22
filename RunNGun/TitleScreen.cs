@@ -12,4 +12,10 @@ public partial class TitleScreen : Control
 	public override void _Process(double delta)
 	{
 	}
+	public void _on_start_exploring_pressed(){
+		GetTree().ChangeSceneToFile("res://Levels/Tutorial/Test Level.tscn");
+	}
+	public void _on_exit_pressed(){
+		GetTree().Quit();
+	}
 }
