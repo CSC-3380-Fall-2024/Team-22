@@ -5,8 +5,6 @@ public partial class Character : CharacterBody2D
 {
 	[Signal]
 	public delegate void playerDiedEventHandler();
-	[Signal]
-	public delegate void saveGameEventHandler();
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
 	private Vector2 velocity;
@@ -21,7 +19,6 @@ public partial class Character : CharacterBody2D
 		if (direction != Vector2.Zero)
 		{
 			_animatedSprite.Play("walking");
-
 		}
     }
 
@@ -34,32 +31,34 @@ public partial class Character : CharacterBody2D
 	private int health = 20;
 	private bool hasJumpedTwice = false;
 
-  public override void _Process(double delta)
-  {
-    if(isDead())
-	  { 
+	public override void _Process(double delta)
+	{
+		if(isDead())
+		{ 
 			EmitSignal(SignalName.playerDied);
 			QueueFree();
 			GetTree().ReloadCurrentScene();
 		}
+		
 		updateDirection();
-	if(Input.IsActionJustPressed("ui_focus_next"))
-	{
-		if(GetNode<RayCast2D>("RayCastMid").IsColliding())
+		
+		if(Input.IsActionJustPressed("ui_focus_next"))
 		{
-			Node obj = (Node)GetNode<RayCast2D>("RayCastMid").GetCollider();
-			showNPCDialogue(obj);
-			
-		}
-		else if(GetNode<RayCast2D>("RayCastMid2").IsColliding())
-		{
-			Node obj = (Node)GetNode<RayCast2D>("RayCastMid2").GetCollider();
-			showNPCDialogue(obj);
+			if(GetNode<RayCast2D>("RayCastMid").IsColliding())
+			{
+				Node obj = (Node)GetNode<RayCast2D>("RayCastMid").GetCollider();
+				showNPCDialogue(obj);
+				
+			}
+			else if(GetNode<RayCast2D>("RayCastMid2").IsColliding())
+			{
+				Node obj = (Node)GetNode<RayCast2D>("RayCastMid2").GetCollider();
+				showNPCDialogue(obj);
+			}
 		}
 	}
-  }
 
-  public override void _PhysicsProcess(double delta)
+ 	public override void _PhysicsProcess(double delta)
 	{
 		velocity = Velocity;
 		// Get the input direction and handle the movement/deceleration.
@@ -118,25 +117,7 @@ public partial class Character : CharacterBody2D
 			{
 				health -= 20;
 			}
-			
-			if (hit.GetCollider().HasSignal("savePoint"))
-			{
-				EmitSignal(SignalName.saveGame);
-			}
 		}
-	}
-  
-	public Godot.Collections.Dictionary<string, Variant> Save()
-	{
-		return new Godot.Collections.Dictionary<string, Variant>()
-		{
-			{ "Filename", SceneFilePath },
-			{ "Parent", GetParent().GetPath() },
-			{ "PosX", Position.X }, 
-			{ "PosY", Position.Y },
-			{ "FaceDirection", faceDirection},
-			{ "Health", health},
-		};
 	}
 
 	public void updateDirection()
@@ -159,35 +140,35 @@ public partial class Character : CharacterBody2D
 	}  
 	private void showNPCDialogue(Node obj)
 	{
-	if(obj is NPC)
-			{
+		if(obj is NPC)
+		{
 			NPC npc = obj as NPC;
 			npc.setNPCDialogue();
 			InterfaceManager.dialogueManager.ShowDialogueElement();
-			}	
-	else if (obj is NPC2)
-	{
-		NPC2 npc = obj as NPC2;
-		npc.setNPCDialogue();
-		InterfaceManager.dialogueManager.ShowDialogueElement();
-	}
-	else if (obj is NPC3)
-	{
-		NPC3 npc = obj as NPC3;
-		npc.setNPCDialogue();
-		InterfaceManager.dialogueManager.ShowDialogueElement();
-	}
-	else if (obj is NPC4)
-	{
-		NPC4 npc = obj as NPC4;
-		npc.setNPCDialogue();
-		InterfaceManager.dialogueManager.ShowDialogueElement();
-	}
-	else if (obj is NPC5)
-	{
-		NPC5 npc = obj as NPC5;
-		npc.setNPCDialogue();
-		InterfaceManager.dialogueManager.ShowDialogueElement();
-	}
+		}	
+		else if (obj is NPC2)
+		{
+			NPC2 npc = obj as NPC2;
+			npc.setNPCDialogue();
+			InterfaceManager.dialogueManager.ShowDialogueElement();
+		}
+		else if (obj is NPC3)
+		{
+			NPC3 npc = obj as NPC3;
+			npc.setNPCDialogue();
+			InterfaceManager.dialogueManager.ShowDialogueElement();
+		}
+		else if (obj is NPC4)
+		{
+			NPC4 npc = obj as NPC4;
+			npc.setNPCDialogue();
+			InterfaceManager.dialogueManager.ShowDialogueElement();
+		}
+		else if (obj is NPC5)
+		{
+			NPC5 npc = obj as NPC5;
+			npc.setNPCDialogue();
+			InterfaceManager.dialogueManager.ShowDialogueElement();
+		}
 	}
 }

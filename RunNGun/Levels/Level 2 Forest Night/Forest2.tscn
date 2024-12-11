@@ -1,10 +1,10 @@
 [gd_scene load_steps=41 format=4 uid="uid://6fxevo8drae5"]
 
-[ext_resource type="Texture2D" uid="uid://bojp3u75sgtrm" path="res://Night Background.png" id="1_55lsk"]
+[ext_resource type="Texture2D" uid="uid://dodfkostqlcpm" path="res://Night Background.png" id="1_55lsk"]
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="2_8iphi"]
 [ext_resource type="Texture2D" uid="uid://d11jvo85ekqm5" path="res://sprites/coin.png" id="3_6g48p"]
-[ext_resource type="Texture2D" uid="uid://ge5dj5xf0cp7" path="res://Use Root as Spikes.png" id="3_o6oi6"]
-[ext_resource type="Texture2D" uid="uid://cq5fnqml1vwh8" path="res://Ice tilesets.png" id="4_d1k7e"]
+[ext_resource type="Texture2D" uid="uid://c7auasqas1a27" path="res://Use Root as Spikes.png" id="3_o6oi6"]
+[ext_resource type="Texture2D" uid="uid://dbjrnxlk1jpma" path="res://Ice tilesets.png" id="4_d1k7e"]
 [ext_resource type="Texture2D" uid="uid://bt1g8y08f8hv" path="res://sprites/(Dark)world_tileset (1).png" id="5_jr5u4"]
 [ext_resource type="PackedScene" uid="uid://csnpxtufau0pe" path="res://GunEnemy.tscn" id="6_6r2lu"]
 [ext_resource type="PackedScene" uid="uid://g7kgiua8uowq" path="res://Checkpoint.tscn" id="7_516tn"]

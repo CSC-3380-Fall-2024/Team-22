@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://btxio41jgr502" path="res://NPC's/npc.tscn" id="13_3c11f"]
 [ext_resource type="Script" path="res://Levels/Tutorial/InterfaceManager.cs" id="15_x6kok"]
 [ext_resource type="Script" path="res://Levels/Tutorial/DialogueManager.cs" id="16_8kw4t"]
-[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/InterfaceSelection.tscn" id="17_2tkvt"]
+[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/interface_selection.tscn" id="17_2tkvt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1hnpc"]
 texture = ExtResource("1_3gm4b")

@@ -23,12 +23,6 @@ public partial class EnemyTest : CharacterBody2D
 		downCasts[1] = (RayCast2D)GetNode("DownRight");
 		frontCast = (RayCast2D)GetNode("Front");
   	}
-
-    public override void _Process(double delta)
-    {
-		
-    }
-
     public override void _PhysicsProcess(double delta)
     {	
 
@@ -46,21 +40,4 @@ public partial class EnemyTest : CharacterBody2D
 			}
 		}
     }
-
-	public Godot.Collections.Dictionary<string, Variant> Save()
-	{
-		return new Godot.Collections.Dictionary<string, Variant>()
-		{
-			{ "Filename", SceneFilePath },
-			{ "Parent", GetParent().GetPath() },
-			{ "PosX", Position.X }, 
-			{ "PosY", Position.Y },
-			{ "MoveDir", moveDir},
-			{ "Health", health},
-			{ "FrontCast", frontCast},
-			{ "DownCasts", downCasts},
-		};
-	}
-
-	
 }

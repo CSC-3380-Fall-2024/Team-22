@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Levels/Tutorial/Quit.cs" id="7_y30bk"]
 [ext_resource type="Script" path="res://Levels/Tutorial/NextPortal3.cs" id="8_k08bf"]
 [ext_resource type="Script" path="res://Levels/Tutorial/InterfaceManager.cs" id="9_7tu2r"]
-[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/InterfaceSelection.tscn" id="10_2cb4n"]
+[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/interface_selection.tscn" id="10_2cb4n"]
 [ext_resource type="Script" path="res://Characters/EnemyTest.cs" id="12_ejjrg"]
 [ext_resource type="Texture2D" uid="uid://d077472vdgpfb" path="res://sprites/knight.png" id="13_u060o"]
 

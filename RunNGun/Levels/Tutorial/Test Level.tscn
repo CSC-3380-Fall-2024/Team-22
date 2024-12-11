@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cawa4110qxs6e"]
+[gd_scene load_steps=22 format=4 uid="uid://cawa4110qxs6e"]
 
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="1_xd7b3"]
 [ext_resource type="PackedScene" uid="uid://c3bmr4vyapi3b" path="res://Characters/Enemy.tscn" id="2_byo84"]
@@ -12,30 +12,6 @@
 [ext_resource type="Script" path="res://Levels/Tutorial/Quit.cs" id="8_ti8kq"]
 [ext_resource type="Script" path="res://Levels/Tutorial/NextPortal1.cs" id="10_ke2vr"]
 [ext_resource type="PackedScene" uid="uid://csnpxtufau0pe" path="res://GunEnemy.tscn" id="10_of4hq"]
-
-[sub_resource type="CSharpScript" id="CSharpScript_dxxx4"]
-script/source = "using Godot;
-using System;
-
-public partial class DeathBarrier : Area2D
-{
-
-    public override void _Ready()
-    {
-       
-        BodyEntered += OnBodyEntered;
-    }
-
-    private void OnBodyEntered(Node2D body)
-    {
-      
-        if (body is Character)  
-        {
-            GetTree().ReloadCurrentScene();
-        }
-    }
-}
-"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mb77"]
 texture = ExtResource("1_xd7b3")
@@ -265,7 +241,6 @@ size = Vector2(1991.31, 24)
 radius = 16.0312
 
 [node name="Main" type="Node2D"]
-script = SubResource("CSharpScript_dxxx4")
 
 [node name="Enemy4" parent="." groups=["Persist"] instance=ExtResource("2_byo84")]
 position = Vector2(770.522, 218.828)

@@ -55,25 +55,9 @@ public partial class Boss : CharacterBody2D
 		
     }
 
-	public Godot.Collections.Dictionary<string, Variant> Save()
-	{
-		return new Godot.Collections.Dictionary<string, Variant>()
-		{
-			{ "Filename", SceneFilePath },
-			{ "Parent", GetParent().GetPath() },
-			{ "PosX", Position.X }, 
-			{ "PosY", Position.Y },
-			{ "MoveDir", moveDir},
-			{ "Health", health},
-			{ "FrontCast", frontCast},
-		};
-	}
-
 	private bool isDead()
 	{
 		if (health <= 0) return true;
-		
-
 		else return false;
 	}
 }

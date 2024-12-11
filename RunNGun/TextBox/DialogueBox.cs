@@ -6,6 +6,7 @@ public partial class DialogueBox : Control
 {
 	private Label dialogueLabel;
 	private Button nextButton;
+	private int currentLineIndex = 0;
 
 	private List<string> dialogueLines = new List<string>
 	{
@@ -14,8 +15,6 @@ public partial class DialogueBox : Control
 		"You may face challenge, do not give up",
 		"Good Luck!"
 	};
-
-	private int currentLineIndex = 0;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
