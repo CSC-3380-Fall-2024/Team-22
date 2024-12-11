@@ -84,6 +84,7 @@ You stand in silence as your stomach rumbles...
 "
 
 [node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 809.0
 offset_top = 554.0
 offset_right = 1127.0
@@ -99,4 +100,4 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_xv3tb")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3o5sq")
 text = "Continue..."
 
-[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Button" to="." method="onButtonPressed"]

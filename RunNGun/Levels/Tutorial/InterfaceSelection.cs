@@ -11,10 +11,6 @@ public partial class InterfaceSelection : Control
 		this.GetNode<Label>("Label").Text = interfaceSelectionObject.SelectionText;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
 	public void SetSelected(bool selected)
 	{
 		Selected = selected;

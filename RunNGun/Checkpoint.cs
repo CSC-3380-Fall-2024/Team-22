@@ -10,18 +10,8 @@ public partial class Checkpoint : Node2D
 	public delegate void savePointEventHandler();
 	public CharacterBody2D player;
 
-    public override void _Ready()
-    {
-
-    }
     public void onPlayerDied()
 	{
 		GetTree().ReloadCurrentScene();  
 	}
-
-    public override void _Process(double delta)
-    {
-	}
-
-
-	}
+}

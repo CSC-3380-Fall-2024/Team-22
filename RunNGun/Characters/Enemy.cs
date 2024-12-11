@@ -32,6 +32,7 @@ public partial class Enemy : CharacterBody2D
 		{
 			moveDir *= -1;	
 		}
+
 		// Flips collision detection direction
 		frontCast.TargetPosition = new Vector2(19*moveDir, 0);
     }
@@ -63,21 +64,6 @@ public partial class Enemy : CharacterBody2D
 			}
 		}
     }
-
-	public Godot.Collections.Dictionary<string, Variant> Save()
-	{
-		return new Godot.Collections.Dictionary<string, Variant>()
-		{
-			{ "Filename", SceneFilePath },
-			{ "Parent", GetParent().GetPath() },
-			{ "PosX", Position.X }, 
-			{ "PosY", Position.Y },
-			{ "MoveDir", moveDir},
-			{ "Health", health},
-			{ "FrontCast", frontCast},
-			{ "DownCasts", downCasts},
-		};
-	}
 
 	private bool shouldTurn()
 	{

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c2vphkrxt1156" path="res://NPC's/npc_3.tscn" id="5_e35ym"]
 [ext_resource type="Script" path="res://Levels/Tutorial/InterfaceManager.cs" id="7_wg2m0"]
 [ext_resource type="Script" path="res://Levels/Tutorial/DialogueManager.cs" id="8_2vq41"]
-[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/InterfaceSelection.tscn" id="9_mcfmu"]
+[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/interface_selection.tscn" id="9_mcfmu"]
 [ext_resource type="Script" path="res://Levels/Tutorial/PauseManager.cs" id="10_omep6"]
 [ext_resource type="Script" path="res://Levels/Tutorial/ToggleVisibilityonPause.cs" id="11_yyqlq"]
 [ext_resource type="Script" path="res://Levels/Tutorial/Restart.cs" id="12_7144c"]

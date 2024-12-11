@@ -7,7 +7,7 @@ public partial class Boss : CharacterBody2D
 	[Signal]
 	public delegate void damagingEventHandler();
 	private const float SPEED = 0f;
-	private int health = 100;
+	private int health = 1000;
 	private int moveDir = -1;
 	private KinematicCollision2D hit;
 	private Vector2 velocity;
@@ -23,14 +23,16 @@ public partial class Boss : CharacterBody2D
 
     public override void _Process(double delta)
     {
-		if (isDead()) QueueFree();
-
+		if (isDead()) 
+		{
+			QueueFree();
+			GetTree().ChangeSceneToFile("res://EatOrNotToEat.tscn");
+		}
     }
 
     public override void _PhysicsProcess(double delta)
     {	
 		velocity = Velocity;
-
 		velocity.X = SPEED*moveDir;
 		Velocity = velocity;
 		MoveAndSlide();
@@ -47,24 +49,8 @@ public partial class Boss : CharacterBody2D
 			{
 				health -= 10;
 			}
-		}
-
-		
+		}		
     }
-
-	public Godot.Collections.Dictionary<string, Variant> Save()
-	{
-		return new Godot.Collections.Dictionary<string, Variant>()
-		{
-			{ "Filename", SceneFilePath },
-			{ "Parent", GetParent().GetPath() },
-			{ "PosX", Position.X }, 
-			{ "PosY", Position.Y },
-			{ "MoveDir", moveDir},
-			{ "Health", health},
-			{ "FrontCast", frontCast},
-		};
-	}
 
 	private bool isDead()
 	{

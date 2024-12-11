@@ -2,59 +2,61 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 public partial class DialogueManager : Control
 {
     public List<NpcDialogue> npcDialogue;
     [Export]
     public PackedScene InterfaceSelectableObject;
-
-private bool isDialogueUp;
-private int currentSelectionIndex = 0;
-public string DialogueHeader;
     public List<InterfaceSelection> Selections = new List<InterfaceSelection>();
-     public override void _Ready()
-    {
-       
-    }
+    public string DialogueHeader;
+    private bool isDialogueUp;
+    private int currentSelectionIndex = 0;
     
     public  override void _Process(double delta)
     {
-       if(isDialogueUp)
-       {
-        if(Input.IsActionJustPressed("DialogueLeft"))
+        if(isDialogueUp)
         {
-            foreach (var item in Selections)
+            if(Input.IsActionJustPressed("DialogueLeft"))
             {
-                item.SetSelected(false);
+                foreach (InterfaceSelection item in Selections)
+                {
+                    item.SetSelected(false);
+                }
+                
+                currentSelectionIndex -= 1;
+                
+                if(currentSelectionIndex < 0)
+                {
+                    currentSelectionIndex = 0;
+                }
+                
+                Selections[currentSelectionIndex].SetSelected(true);
             }
-            currentSelectionIndex -= 1;
-            if(currentSelectionIndex < 0)
+
+            else if (Input.IsActionJustPressed("DialogueRight"))
             {
-                currentSelectionIndex = 0;
+                foreach (InterfaceSelection item in Selections)
+                {
+                    item.SetSelected(false);
+                }
+                
+                currentSelectionIndex += 1;
+                
+                if(currentSelectionIndex > Selections.Count - 1)
+                {
+                    currentSelectionIndex = Selections.Count - 1;
+                }
+                
+                Selections[currentSelectionIndex].SetSelected(true);
             }
-            Selections[currentSelectionIndex].SetSelected(true);
+
+            else if(Input.IsActionJustPressed("DialogueAccept"))
+            {
+                // await ToSignal(GetTree(), "idle_frame");
+                displayNextDialogueElement(Selections[currentSelectionIndex].interfaceSelectionObject.SelectionIndex);
+            }
         }
-        else if (Input.IsActionJustPressed("DialogueRight"))
-        {
-             foreach (var item in Selections)
-            {
-                item.SetSelected(false);
-            }
-            currentSelectionIndex += 1;
-            if(currentSelectionIndex > Selections.Count - 1)
-            {
-                currentSelectionIndex = Selections.Count - 1;
-            }
-            Selections[currentSelectionIndex].SetSelected(true);
-        }
-        else if(Input.IsActionJustPressed("DialogueAccept"))
-        {
-           // await ToSignal(GetTree(), "idle_frame");
-            displayNextDialogueElement(Selections[currentSelectionIndex].interfaceSelectionObject.SelectionIndex);
-        }
-       }
     }
     public void ShowDialogueElement()
     {
@@ -70,18 +72,21 @@ public string DialogueHeader;
         {
             item.QueueFree();
         }
+
         Selections = new List<InterfaceSelection>();
         GetNode<RichTextLabel>("Panel/RichTextLabel").Text = dialogue.DisplayText;
-        foreach(var item in dialogue.InterfaceSelectionObjects)
+        foreach(InterfaceSelectionObject item in dialogue.InterfaceSelectionObjects)
+        
         {
            
-           PackedScene packedScene = GD.Load<PackedScene>("res://Levels/Tutorial/InterfaceSelection.tscn");
-           InterfaceSelection interfaceSelection = packedScene?.Instantiate<InterfaceSelection>();
+            PackedScene packedScene = GD.Load<PackedScene>("res://Levels/Tutorial/InterfaceSelection.tscn");
+            InterfaceSelection interfaceSelection = packedScene?.Instantiate<InterfaceSelection>();
             interfaceSelection.interfaceSelectionObject = item;
             GetNode<HBoxContainer>("Panel/HBoxContainer").AddChild(interfaceSelection);
             Selections.Add(interfaceSelection);
             interfaceSelection.SetSelected(false);
         }
+
         Selections[0].SetSelected(true);
         currentSelectionIndex = 0;
         isDialogueUp = true;
@@ -92,12 +97,14 @@ public string DialogueHeader;
         GetNode<Panel>("Panel").Hide();
         isDialogueUp = false;
     }
+    
     private void displayNextDialogueElement(int index)
     {
         if(npcDialogue.ElementAtOrDefault(index) == null || index == -1)
         {
             shutdownDialogue();
         }
+
         else
         {
             WriteDialouge(npcDialogue[index]);

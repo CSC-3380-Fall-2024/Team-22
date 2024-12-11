@@ -119,5 +119,5 @@ text = "End Of Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="onRestartPressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="onExitPressed"]

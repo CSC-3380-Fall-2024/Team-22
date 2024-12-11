@@ -83,6 +83,7 @@ A long journey to and through the heart of the forest ends on a good meal.
 You ignore the old man to revel in your newfound riches while he collapses..."
 
 [node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 809.0
 offset_top = 577.0
 offset_right = 1127.0
@@ -98,4 +99,4 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_6uouj")
 theme_override_styles/normal = SubResource("StyleBoxFlat_tfu52")
 text = "Continue..."
 
-[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Button" to="." method="onButtonPressed"]

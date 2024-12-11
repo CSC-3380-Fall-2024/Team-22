@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://Levels/Tutorial/PauseManager.cs" id="7_comgk"]
 [ext_resource type="Script" path="res://Levels/Tutorial/InterfaceManager.cs" id="8_04swv"]
 [ext_resource type="Script" path="res://Levels/Tutorial/DialogueManager.cs" id="9_o5g74"]
-[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/InterfaceSelection.tscn" id="10_f8gep"]
-[ext_resource type="Script" path="res://Characters/EnemyTest.cs" id="11_rray4"]
+[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/interface_selection.tscn" id="10_f8gep"]
+[ext_resource type="Script" path="res://EnemyTest.cs" id="11_rray4"]
 [ext_resource type="Texture2D" uid="uid://d077472vdgpfb" path="res://sprites/knight.png" id="12_gby4h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxbte"]
