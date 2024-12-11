@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://25lnoctcvrci"]
+
+[ext_resource type="Texture2D" uid="uid://dldo58ys6o4qu" path="res://IntoTheWoodsTitleImage.jpg" id="1_1wmll"]
+[ext_resource type="Script" path="res://DefeatBossTc.cs" id="1_gjxvc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xiklr"]
+texture = ExtResource("1_1wmll")
+modulate_color = Color(0.306923, 0.306923, 0.306923, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_615qp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flc5l"]
+bg_color = Color(0.703808, 0.703808, 0.703808, 0.996078)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv3tb"]
+bg_color = Color(0.310617, 0.310617, 0.310617, 0.996078)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3o5sq"]
+bg_color = Color(1, 1, 1, 0.996078)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="DefeatBossTc" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gjxvc")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xiklr")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -528.5
+offset_top = -245.5
+offset_right = 528.5
+offset_bottom = 245.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "After defeating the cursed tree...
+Our hero and the apple escape through the heart of the forest.
+
+Once they're outside, the apple starts shaking!!
+
+You drop the apple as it transforms into a girl!!
+
+\"Thank you for freeing me and stopping the monster!\" 
+\"I need to find my father... He's bald and wears a blue cloak. \"
+\"I fear terribly that he has grown distant and cold in my absence.\"
+\"Have you seen him?\"
+
+You stand in silence as your stomach rumbles...
+"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 809.0
+offset_top = 554.0
+offset_right = 1127.0
+offset_bottom = 615.0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxEmpty_615qp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_flc5l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xv3tb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3o5sq")
+text = "Continue..."
+
+[connection signal="pressed" from="Panel/Button" to="." method="onButtonPressed"]
