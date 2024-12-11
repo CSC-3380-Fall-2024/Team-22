@@ -23,7 +23,7 @@ public string DialogueHeader;
     {
        if(isDialogueUp)
        {
-        if(Input.IsActionJustPressed("ui_left"))
+        if(Input.IsActionJustPressed("DialogueLeft"))
         {
             foreach (var item in Selections)
             {
@@ -36,7 +36,7 @@ public string DialogueHeader;
             }
             Selections[currentSelectionIndex].SetSelected(true);
         }
-        else if (Input.IsActionJustPressed("ui_right"))
+        else if (Input.IsActionJustPressed("DialogueRight"))
         {
              foreach (var item in Selections)
             {
@@ -49,7 +49,7 @@ public string DialogueHeader;
             }
             Selections[currentSelectionIndex].SetSelected(true);
         }
-        else if(Input.IsActionJustPressed("ui_accept"))
+        else if(Input.IsActionJustPressed("DialogueAccept"))
         {
            // await ToSignal(GetTree(), "idle_frame");
             displayNextDialogueElement(Selections[currentSelectionIndex].interfaceSelectionObject.SelectionIndex);
@@ -75,7 +75,7 @@ public string DialogueHeader;
         foreach(var item in dialogue.InterfaceSelectionObjects)
         {
            
-           PackedScene packedScene = GD.Load<PackedScene>("res://InterfaceSelection.tscn");
+           PackedScene packedScene = GD.Load<PackedScene>("res://Levels/Tutorial/InterfaceSelection.tscn");
            InterfaceSelection interfaceSelection = packedScene?.Instantiate<InterfaceSelection>();
             interfaceSelection.interfaceSelectionObject = item;
             GetNode<HBoxContainer>("Panel/HBoxContainer").AddChild(interfaceSelection);

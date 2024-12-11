@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://faioch42cwyx"]
+
+[ext_resource type="Script" path="res://NPC's/NPC4.cs" id="1_56hy4"]
+[ext_resource type="Texture2D" uid="uid://d0p6n3i7cr5um" path="res://sprites/fish man.png" id="2_gd6u5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i15i7"]
+size = Vector2(33, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q381f"]
+atlas = ExtResource("2_gd6u5")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcob8"]
+atlas = ExtResource("2_gd6u5")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcull"]
+atlas = ExtResource("2_gd6u5")
+region = Rect2(0, 320, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ui02c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q381f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcob8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcull")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NPC4" type="CharacterBody2D"]
+position = Vector2(270, 391)
+collision_mask = 3
+script = ExtResource("1_56hy4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -4)
+shape = SubResource("RectangleShape2D_i15i7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.05991e-06, -4.00001)
+scale = Vector2(0.098047, 0.098047)
+sprite_frames = SubResource("SpriteFrames_ui02c")

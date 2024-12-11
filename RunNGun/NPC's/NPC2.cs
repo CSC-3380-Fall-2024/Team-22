@@ -11,14 +11,14 @@ public partial class NPC2 : CharacterBody2D
 	public override void _Ready()
 	{
 		
-		InterfaceSelectionObject obj = new InterfaceSelectionObject(1, "Yes");
-		InterfaceSelectionObject obj2 = new InterfaceSelectionObject(2, "No");
+		InterfaceSelectionObject obj = new InterfaceSelectionObject(1, "? Block.");
+		InterfaceSelectionObject obj2 = new InterfaceSelectionObject(2, "Directions?");
 		InterfaceSelectionObject obj3 = new InterfaceSelectionObject(-1, "Thanks");
 		npc2Dialogue = new List<NpcDialogue>
 		{
-			new NpcDialogue(new List<InterfaceSelectionObject>(){obj,obj2},"Hello there, little one. Aren't you cold out here?", 0),
-			new NpcDialogue(new List<InterfaceSelectionObject>(){obj3},"Me neither.", 1),
-			new NpcDialogue(new List<InterfaceSelectionObject>(){obj3},"Good luck with the cold.", 2)
+			new NpcDialogue(new List<InterfaceSelectionObject>(){obj,obj2},"Where did YOU come from?! How did you even get here?!", 0),
+			new NpcDialogue(new List<InterfaceSelectionObject>(){obj3},"Well go AWAY! There should be another one above us. If you can make it there that is...", 1),
+			new NpcDialogue(new List<InterfaceSelectionObject>(){obj3},"I'm partial to northeast myself. But UP is a personal favorite.", 2)
 
 		};
 		npc2Name = "Ice Lady";

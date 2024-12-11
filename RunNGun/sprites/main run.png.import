@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7idmuptodvig"
-path="res://.godot/imported/nature-paltformer-tileset-16x16.png-9111af2de82aa7093fb1fa160a10afc6.ctex"
+uid="uid://di6ehjowgbmni"
+path="res://.godot/imported/main run.png-da9a3b60bcab0f9795a75a98d7426be8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/level5/nature-paltformer-tileset-16x16.png"
-dest_files=["res://.godot/imported/nature-paltformer-tileset-16x16.png-9111af2de82aa7093fb1fa160a10afc6.ctex"]
+source_file="res://sprites/main run.png"
+dest_files=["res://.godot/imported/main run.png-da9a3b60bcab0f9795a75a98d7426be8.ctex"]
 
 [params]
 

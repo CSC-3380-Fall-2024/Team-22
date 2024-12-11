@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cowr0wq51mssg"]
+[gd_scene load_steps=24 format=4 uid="uid://cowr0wq51mssg"]
 
 [ext_resource type="Script" path="res://Levels/Tutorial/DialogueManager.cs" id="1_0or3h"]
 [ext_resource type="Texture2D" uid="uid://g2cd5cw0c0te" path="res://sprites/world_tileset.png" id="1_xowth"]
@@ -10,9 +10,9 @@
 [ext_resource type="Script" path="res://Levels/Tutorial/Quit.cs" id="7_y30bk"]
 [ext_resource type="Script" path="res://Levels/Tutorial/NextPortal3.cs" id="8_k08bf"]
 [ext_resource type="Script" path="res://Levels/Tutorial/InterfaceManager.cs" id="9_7tu2r"]
-[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/interface_selection.tscn" id="10_2cb4n"]
-[ext_resource type="Script" path="res://Levels/Tutorial/NPC.cs" id="12_8cxsy"]
-[ext_resource type="Texture2D" uid="uid://bvbrcexlj71kc" path="res://icon.svg" id="13_ussh2"]
+[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/InterfaceSelection.tscn" id="10_2cb4n"]
+[ext_resource type="Script" path="res://Characters/EnemyTest.cs" id="12_ejjrg"]
+[ext_resource type="Texture2D" uid="uid://d077472vdgpfb" path="res://sprites/knight.png" id="13_u060o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a4gpj"]
 texture = ExtResource("1_xowth")
@@ -206,8 +206,44 @@ radius = 16.0312
 [sub_resource type="Resource" id="Resource_vmpat"]
 metadata/__load_path__ = "res://InterfaceSelection.tscn"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpgib"]
-size = Vector2(33, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsiof"]
+atlas = ExtResource("13_u060o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfmrs"]
+atlas = ExtResource("13_u060o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxd2u"]
+atlas = ExtResource("13_u060o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwy4e"]
+atlas = ExtResource("13_u060o")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e6v5e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsiof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfmrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxd2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwy4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxqqq"]
+size = Vector2(1991.31, 24)
 
 [node name="Tutorial3" type="Node2D"]
 position = Vector2(-1, 0)
@@ -381,19 +417,66 @@ alignment = 1
 [node name="InterfaceSelection" parent="InterfaceManager/DialogueManager/Panel/HBoxContainer" instance=ExtResource("10_2cb4n")]
 layout_mode = 2
 
-[node name="NPC" type="CharacterBody2D" parent="."]
-position = Vector2(264, 504)
-script = ExtResource("12_8cxsy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
-position = Vector2(-0.5, -4)
-shape = SubResource("RectangleShape2D_kpgib")
-
-[node name="Sprite2D" type="Sprite2D" parent="NPC"]
-position = Vector2(0, -1)
-scale = Vector2(0.210938, 0.210938)
-texture = ExtResource("13_ussh2")
-
 [node name="Character" parent="." groups=["Persist"] instance=ExtResource("2_um6aj")]
 position = Vector2(83, 482)
 collision_mask = 3
+
+[node name="Dbarrier1-F1" type="CharacterBody2D" parent="."]
+position = Vector2(-276, 586)
+collision_layer = 9
+collision_mask = 7
+script = ExtResource("12_ejjrg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dbarrier1-F1"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_e6v5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dbarrier1-F1"]
+position = Vector2(8, 6)
+shape = SubResource("RectangleShape2D_dxqqq")
+
+[node name="DownLeft" type="RayCast2D" parent="Dbarrier1-F1"]
+position = Vector2(-10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="DownRight" type="RayCast2D" parent="Dbarrier1-F1"]
+position = Vector2(10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="Front" type="RayCast2D" parent="Dbarrier1-F1"]
+position = Vector2(0, 3)
+target_position = Vector2(-19, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Dbarrier1-F1" type="CharacterBody2D" parent="Dbarrier1-F1"]
+position = Vector2(4068, -256)
+collision_layer = 9
+collision_mask = 7
+script = ExtResource("12_ejjrg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dbarrier1-F1/Dbarrier1-F1"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_e6v5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(8, 6)
+shape = SubResource("RectangleShape2D_dxqqq")
+
+[node name="DownLeft" type="RayCast2D" parent="Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(-10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="DownRight" type="RayCast2D" parent="Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(10, 5)
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="Front" type="RayCast2D" parent="Dbarrier1-F1/Dbarrier1-F1"]
+position = Vector2(0, 3)
+target_position = Vector2(-19, 0)
+collision_mask = 2
+collide_with_areas = true

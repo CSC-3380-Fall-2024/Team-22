@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://djs5qjtbr6yvm"]
+
+[ext_resource type="Script" path="res://NPC's/NPC2.cs" id="1_fd4vw"]
+[ext_resource type="Texture2D" uid="uid://c37vw3kr1uad1" path="res://sprites/ice lady.png" id="2_1i537"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqpci"]
+size = Vector2(33, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e40hp"]
+atlas = ExtResource("2_1i537")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32gxc"]
+atlas = ExtResource("2_1i537")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c384p"]
+atlas = ExtResource("2_1i537")
+region = Rect2(0, 320, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ybps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e40hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32gxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c384p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NPC2" type="CharacterBody2D"]
+position = Vector2(-70, 52)
+script = ExtResource("1_fd4vw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -4)
+shape = SubResource("RectangleShape2D_kqpci")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.38419e-07, -4)
+scale = Vector2(0.101172, 0.101172)
+sprite_frames = SubResource("SpriteFrames_7ybps")

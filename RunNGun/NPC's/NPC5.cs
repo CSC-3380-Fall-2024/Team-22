@@ -11,14 +11,14 @@ public partial class NPC5 : CharacterBody2D
 	public override void _Ready()
 	{
 		
-		InterfaceSelectionObject obj = new InterfaceSelectionObject(1, "Exploring.");
-		InterfaceSelectionObject obj2 = new InterfaceSelectionObject(2, "Treasure Hunting");
-		InterfaceSelectionObject obj3 = new InterfaceSelectionObject(-1, "Thanks");
+		InterfaceSelectionObject obj = new InterfaceSelectionObject(1, "You talk?");
+		InterfaceSelectionObject obj2 = new InterfaceSelectionObject(2, "Treasure?");
+		InterfaceSelectionObject obj3 = new InterfaceSelectionObject(-1, "BRB");
 		npcDialogue = new List<NpcDialogue>
 		{
-			new NpcDialogue(new List<InterfaceSelectionObject>(){obj,obj2},"Hello young one. Tell me, what are you doing in these woods?", 0),
-			new NpcDialogue(new List<InterfaceSelectionObject>(){obj3},"You must be cautious of the monsters in this place.", 1),
-			new NpcDialogue(new List<InterfaceSelectionObject>(){obj3},"You may not like what you find...", 2)
+			new NpcDialogue(new List<InterfaceSelectionObject>(){obj,obj2},"DON'T EAT ME!", 0),
+			new NpcDialogue(new List<InterfaceSelectionObject>(){obj3},"I was cursed by that monster over there. My dad and I were looking for the treasure and it got me. If you beat it we can get out of here!", 1),
+			new NpcDialogue(new List<InterfaceSelectionObject>(){obj3},"I couldn't find it. That monster cursed me when I came here. If you beat it, you can get out of here!", 2)
 
 		};
 		npcName = "The Apple";

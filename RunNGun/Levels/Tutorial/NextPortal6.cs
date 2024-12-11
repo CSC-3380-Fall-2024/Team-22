@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class NextPortal3 : Area2D
+public partial class NextPortal6 : Area2D
 {
         public override void _Ready()
     {
@@ -15,7 +15,7 @@ public partial class NextPortal3 : Area2D
         if (body is Character)  
         {
             // Load the next level scene.
-            GetTree().ChangeSceneToFile("res://Levels/Level 1 Forest/Forest1.tscn");
+            GetTree().ChangeSceneToFile("res://AncientCity.tscn");
         }
     }
 }
