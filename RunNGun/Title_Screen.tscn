@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cc7xgbtoxdewn"]
+[gd_scene load_steps=9 format=3 uid="uid://cc7xgbtoxdewn"]
 
+[ext_resource type="Script" path="res://TitleScreen.cs" id="1_ufpx1"]
 [ext_resource type="Texture2D" uid="uid://dldo58ys6o4qu" path="res://IntoTheWoodsTitleImage.jpg" id="1_yrtqi"]
 [ext_resource type="FontFile" uid="uid://dion8o5m5d364" path="res://Pixelmax-Regular.otf" id="2_8novv"]
-[ext_resource type="Script" path="res://Exploring.cs" id="3_pnedn"]
-[ext_resource type="Script" path="res://Levels/Tutorial/Quit.cs" id="4_yewod"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i54wg"]
 texture = ExtResource("1_yrtqi")
@@ -49,6 +48,7 @@ offset_right = 1.0
 offset_bottom = 58.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ufpx1")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -110,7 +110,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_n6hr4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_n37i3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3v1ex")
 text = "Start Exploring"
-script = ExtResource("3_pnedn")
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -125,4 +124,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_n6hr4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_n37i3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3v1ex")
 text = "Exit"
-script = ExtResource("4_yewod")
+
+[connection signal="pressed" from="VBoxContainer/Exploring" to="." method="_on_exploring_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

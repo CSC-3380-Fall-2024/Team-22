@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bohfungrag1qq"]
+[gd_scene load_steps=8 format=3 uid="uid://bohfungrag1qq"]
 
 [ext_resource type="Script" path="res://EndTitleScreen.cs" id="1_vuuim"]
+[ext_resource type="Texture2D" uid="uid://dldo58ys6o4qu" path="res://IntoTheWoodsTitleImage.jpg" id="2_l7rq5"]
+[ext_resource type="FontFile" uid="uid://dion8o5m5d364" path="res://Pixelmax-Regular.otf" id="3_s7fro"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qgqm"]
-modulate_color = Color(0.325441, 0.325441, 0.325441, 1)
+texture = ExtResource("2_l7rq5")
+modulate_color = Color(0.194349, 0.194349, 0.194349, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjrq3"]
 bg_color = Color(0.601223, 0.601223, 0.601223, 1)
@@ -110,10 +113,11 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 12
 theme_override_constants/shadow_offset_y = 12
+theme_override_fonts/font = ExtResource("3_s7fro")
 theme_override_font_sizes/font_size = 72
 text = "End Of Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="onRestartPressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="onExitPressed"]
