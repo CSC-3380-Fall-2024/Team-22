@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://buxe3vajl2m0g"]
 
-[ext_resource type="Texture2D" uid="uid://bojp3u75sgtrm" path="res://Night Background.png" id="1_0k4us"]
+[ext_resource type="Texture2D" uid="uid://cyvm21b1ikp5b" path="res://Night Background.png" id="1_0k4us"]
 [ext_resource type="Script" path="res://EatAppleTc.cs" id="1_dhhdj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gtxrm"]

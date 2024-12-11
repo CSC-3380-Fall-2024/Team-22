@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://25lnoctcvrci"]
 
-[ext_resource type="Texture2D" uid="uid://dldo58ys6o4qu" path="res://IntoTheWoodsTitleImage.jpg" id="1_1wmll"]
+[ext_resource type="Texture2D" uid="uid://nnwm0nvf25o8" path="res://IntoTheWoodsTitleImage.jpg" id="1_1wmll"]
 [ext_resource type="Script" path="res://DefeatBossTc.cs" id="1_gjxvc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xiklr"]

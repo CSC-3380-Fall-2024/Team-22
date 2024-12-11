@@ -7,7 +7,7 @@ public partial class Boss : CharacterBody2D
 	[Signal]
 	public delegate void damagingEventHandler();
 	private const float SPEED = 0f;
-	private int health = 100;
+	private int health = 1000;
 	private int moveDir = -1;
 	private KinematicCollision2D hit;
 	private Vector2 velocity;
@@ -26,7 +26,7 @@ public partial class Boss : CharacterBody2D
 		if (isDead())
 		{
 		QueueFree();
-		GetTree().ChangeSceneToFile("res://Levels/Level 1 Forest/Forest1.tscn");	
+		GetTree().ChangeSceneToFile("res://EatOrNotToEat.tscn");	
 		} 
     }
 
