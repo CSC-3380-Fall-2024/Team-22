@@ -18,7 +18,7 @@ public partial class NPC3 : CharacterBody2D
 		{
 			new NpcDialogue(new List<InterfaceSelectionObject>(){obj,obj2},"Hmmm...", 0),
 			new NpcDialogue(new List<InterfaceSelectionObject>(){obj3},"Turn back, this is no place for tourists.", 1),
-			new NpcDialogue(new List<InterfaceSelectionObject>(){obj3},"*The Man points you to the path above...*", 2)
+			new NpcDialogue(new List<InterfaceSelectionObject>(){obj3},"*The Man points you to the path above...* If you can make it past them, you'll find the heart of the woods, and the beast.", 2)
 
 		};
 		npc3Name = "The Hunter";
