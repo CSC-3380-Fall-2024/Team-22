@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=3 uid="uid://dx2b2uam3v0vg"]
+
+[ext_resource type="Script" path="res://EatOrNotToEat.cs" id="1_5sxqc"]
+[ext_resource type="Texture2D" uid="uid://c5xvucu6iashr" path="res://SeparateTitleScreenImage.jpg" id="2_oebj8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78dtl"]
+texture = ExtResource("2_oebj8")
+modulate_color = Color(0.450648, 0.450648, 0.450648, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t3656"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_511uu"]
+bg_color = Color(0.703808, 0.703808, 0.703808, 0.996078)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xy2rf"]
+bg_color = Color(0.310617, 0.310617, 0.310617, 0.996078)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kal5k"]
+bg_color = Color(1, 1, 1, 0.996078)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="EatOrNotToEat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5sxqc")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_78dtl")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 59.0
+offset_right = 929.0
+offset_bottom = 312.0
+theme_override_font_sizes/font_size = 20
+text = "You defeated the boss!!!
+The treasure lay before you, just like the Lost Ark.
+You are exstatic, and cannot contain yourself!!!
+The apple rejoices with you, and you embrace each other.
+You take a moment and stare at the treasure, entranced in its glory.
+
+You have accomplished the impossible.
+
+*rumble* *gurgle* *growl*
+You look down as your stomach feels as though it is collapsing into itself. 
+A long day of exploring has left you hungry.
+
+What do you want to do?"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 268.0
+offset_top = 502.0
+offset_right = 514.0
+offset_bottom = 594.0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t3656")
+theme_override_styles/hover = SubResource("StyleBoxFlat_511uu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xy2rf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kal5k")
+text = "Forget it"
+
+[node name="Button2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 633.0
+offset_top = 502.0
+offset_right = 879.0
+offset_bottom = 594.0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t3656")
+theme_override_styles/hover = SubResource("StyleBoxFlat_511uu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xy2rf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kal5k")
+text = "Eat the Apple"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_forget_pressed"]
+[connection signal="pressed" from="Panel/Button2" to="." method="_on_eat_pressed"]
