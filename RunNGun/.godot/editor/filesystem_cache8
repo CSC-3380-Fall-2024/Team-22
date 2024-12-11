@@ -1,0 +1,123 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1733888174
+AncientCity.tscn::PackedScene::5931775186997887986::1733874905::0::1::::<><>::uid://g2cd5cw0c0te::::res://sprites/world_tileset.png<>uid://d11jvo85ekqm5::::res://sprites/coin.png<>uid://baild8wd4h110::::res://Player.tscn<>uid://csnpxtufau0pe::::res://GunEnemy.tscn<>uid://c3bmr4vyapi3b::::res://Characters/Enemy.tscn<>uid://c2vphkrxt1156::::res://NPC's/npc_3.tscn<>res://Levels/Tutorial/InterfaceManager.cs<>res://Levels/Tutorial/DialogueManager.cs<>uid://8et7ufg3ws57::::res://Levels/Tutorial/interface_selection.tscn<>res://Levels/Tutorial/PauseManager.cs<>res://Levels/Tutorial/ToggleVisibilityonPause.cs<>res://Levels/Tutorial/Restart.cs<>res://Levels/Tutorial/Quit.cs<>res://Levels/Tutorial/NextPortal7.cs
+Checkpoint.cs::CSharpScript::-1::1733888174::0::1::::<>Node2D<>::
+Checkpoint.tscn::PackedScene::487811485776992740::1733874106::0::1::::<><>::res://Checkpoint.cs<>uid://baild8wd4h110::::res://Player.tscn
+DeathBarrier.cs::CSharpScript::-1::1733874106::0::1::::<>Area2D<>::
+death_barrier.tscn::PackedScene::6383670697468354491::1733874108::0::1::::<><>::res://Levels/Tutorial/DeathBarrier.cs
+DefeatBossTc.cs::CSharpScript::-1::1733888174::0::1::::<>Control<>::
+DefeatBossTC.tscn::PackedScene::1957721952373164088::1733882817::0::1::::<><>::uid://dldo58ys6o4qu::::res://IntoTheWoodsTitleImage.jpg<>res://DefeatBossTc.cs
+EatAppleTc.cs::CSharpScript::-1::1733888174::0::1::::<>Control<>::
+EatAppleTC.tscn::PackedScene::3837972218412574000::1733882817::0::1::::<><>::uid://bojp3u75sgtrm::::res://Night Background.png<>res://EatAppleTc.cs
+EatOrNotToEat.cs::CSharpScript::-1::1733888174::0::1::::<>Control<>::
+EatOrNotToEat.tscn::PackedScene::8829453638592360988::1733882817::0::1::::<><>::res://EatOrNotToEat.cs<>uid://dskjhq4p8ouxe::::res://SeparateTitleScreenImage.jpg
+EndTitleScreen.cs::CSharpScript::-1::1733888174::0::1::::<>Control<>::
+End_Title_Screen.tscn::PackedScene::3383855132590950120::1733882817::0::1::::<><>::res://EndTitleScreen.cs<>uid://dldo58ys6o4qu::::res://IntoTheWoodsTitleImage.jpg<>uid://dion8o5m5d364::::res://Pixelmax-Regular.otf
+EnemyBullet.cs::CSharpScript::-1::1733874106::0::1::::<>RigidBody2D<>::
+EnemyBullet.tscn::PackedScene::7302907969501075208::1733874106::0::1::::<><>::res://EnemyBullet.cs<>uid://d11jvo85ekqm5::::res://sprites/coin.png
+EnemyTest.cs::CSharpScript::-1::1733888174::0::1::::<>CharacterBody2D<>::
+Exploring.cs::CSharpScript::-1::1733888174::0::1::::<>Button<>::
+export_presets.cfg::TextFile::-1::1733874108::0::1::::<><>::
+GunEnemy.cs::CSharpScript::-1::1733881954::0::1::::<>CharacterBody2D<>::
+GunEnemy.tscn::PackedScene::6064030320892605350::1733874106::0::1::::<><>::res://GunEnemy.cs<>uid://dcbt3el1ycxeu::::res://EnemyBullet.tscn<>uid://dl70htkx8f02d::::res://sprites/enemy1.png
+Ice tilesets.png::CompressedTexture2D::5958121857947750287::1733888174::1733888373::1::::<><>::
+IceLevel.tscn::PackedScene::4710940176549434522::1733874106::0::1::::<><>::uid://g2cd5cw0c0te::::res://sprites/world_tileset.png<>uid://dddspux4n1y7r::::res://ice_platform_s.tscn<>uid://by1rvhdlqi7in::::res://ice_platform_l.tscn<>uid://baild8wd4h110::::res://Player.tscn<>uid://d11jvo85ekqm5::::res://sprites/coin.png<>res://Levels/Tutorial/PauseManager.cs<>res://Levels/Tutorial/ToggleVisibilityonPause.cs<>res://Levels/Tutorial/Restart.cs<>res://Levels/Tutorial/Quit.cs<>res://Characters/EnemyTest.cs<>res://Levels/Tutorial/NextPortal6.cs<>uid://d077472vdgpfb::::res://sprites/knight.png<>res://Levels/Tutorial/InterfaceManager.cs<>res://Levels/Tutorial/DialogueManager.cs<>uid://8et7ufg3ws57::::res://Levels/Tutorial/InterfaceSelection.tscn<>uid://djs5qjtbr6yvm::::res://NPC's/npc_2.tscn
+ice_platform_l.tscn::PackedScene::4125696815979852157::1733874108::0::1::::<><>::uid://dpjuvffrwm7xr::::res://sprites/platforms.png
+ice_platform_s.tscn::PackedScene::7377142495367504305::1733874108::0::1::::<><>::uid://dpjuvffrwm7xr::::res://sprites/platforms.png
+icon.svg::CompressedTexture2D::3863486784447687534::1733888174::1733888372::1::::<><>::
+IntoTheWoodsTitleImage.jpg::CompressedTexture2D::7938437847281425224::1733888174::1733888373::1::::<><>::
+LeafProjectile.cs::CSharpScript::-1::1733888174::0::1::::<>RigidBody2D<>::
+LeafProjectile.tscn::PackedScene::6709003927236756028::1733888174::0::1::::<><>::res://LeafProjectile.cs<>uid://d11jvo85ekqm5::::res://sprites/coin.png
+Night Background.png::CompressedTexture2D::3388605752821045802::1733888174::1733888372::1::::<><>::
+PauseMenuCanvasLayer.cs::CSharpScript::-1::1733874107::0::1::::<>CanvasLayer<>::
+Pixelmax-Regular.otf::FontFile::7750523123101725731::1733888174::1733888372::1::::<><>::
+Player.tscn::PackedScene::2403610717459343069::1733888174::0::1::::<><>::res://Characters/Player_Character/Character.cs<>uid://di6ehjowgbmni::::res://sprites/main run.png<>res://Characters/Player_Character/Gun.cs<>uid://cr4tsj3rsk1ei::::res://Characters/Player_Character/Bullet.tscn<>uid://c2t5kxsqc82mq::::res://LeafProjectile.tscn
+See Ice Objects worldbuilding.png::CompressedTexture2D::3005565262635826869::1733888174::1733888372::1::::<><>::
+SeparateTitleScreenImage.jpg::CompressedTexture2D::8443864853495851266::1733888174::1733888372::1::::<><>::
+TitleScreen.cs::CSharpScript::-1::1733882178::0::1::::<>Control<>::
+Title_Screen.tscn::PackedScene::4980686430930826769::1733882817::0::1::::<><>::uid://dldo58ys6o4qu::::res://IntoTheWoodsTitleImage.jpg<>uid://dion8o5m5d364::::res://Pixelmax-Regular.otf<>res://Exploring.cs<>res://Levels/Tutorial/Quit.cs
+Use Root as Spikes.png::CompressedTexture2D::431217960116107678::1733888174::1733888372::1::::<><>::
+::res://Characters/::1733888174
+Boss.cs::CSharpScript::-1::1733888174::0::1::::<>CharacterBody2D<>::
+Boss.tscn::PackedScene::1667378266148524649::1733874905::0::1::::<><>::res://Characters/Boss.cs<>uid://caryljhajm54d::::res://sprites/treeBoss.png<>res://Characters/Front.cs<>uid://c3bmr4vyapi3b::::res://Characters/Enemy.tscn
+DBarrier.tscn::PackedScene::8922931055623474217::1733874106::0::1::::<><>::res://Characters/EnemyTest.cs<>uid://d077472vdgpfb::::res://sprites/knight.png
+Enemy.cs::CSharpScript::-1::1733888174::0::1::::<>CharacterBody2D<>::
+Enemy.tscn::PackedScene::6740953886123846289::1733888174::0::1::::<><>::res://Characters/Enemy.cs<>uid://6mmpc7x63tk3::::res://sprites/enemy2.png
+Front.cs::CSharpScript::-1::1733888174::0::1::::<>RayCast2D<>::
+::res://Characters/Player_Character/::1733888174
+Bullet.cs::CSharpScript::-1::1733888174::0::1::::<>RigidBody2D<>::
+Bullet.tscn::PackedScene::6027104948014891528::1733888174::0::1::::<><>::res://Characters/Player_Character/Bullet.cs<>uid://d11jvo85ekqm5::::res://sprites/coin.png
+Character.cs::CSharpScript::-1::1733888174::0::1::::<>CharacterBody2D<>::
+Gun.cs::CSharpScript::-1::1733888174::0::1::::<>Node2D<>::
+::res://data_New Game Project_windows_x86_64/::1733888174
+New Game Project.deps.json::JSON::-1::1733874107::0::1::::<><>::
+New Game Project.runtimeconfig.json::JSON::-1::1733874107::0::1::::<><>::
+::res://Levels/::1733888174
+pause_menu.tscn::PackedScene::6401530749005571226::1733874107::0::1::::<><>::
+pause_menu_canvas_layer.tscn::PackedScene::5755138853595764003::1733874107::0::1::::<><>::res://PauseMenuCanvasLayer.cs
+::res://Levels/level5/::1733888174
+Level5.tscn::PackedScene::9153594252742956444::1733882836::0::1::::<><>::uid://b7idmuptodvig::::res://Levels/level5/nature-paltformer-tileset-16x16.png<>uid://x0xqg04gignx::::res://Characters/Boss.tscn<>uid://d11jvo85ekqm5::::res://sprites/coin.png<>uid://baild8wd4h110::::res://Player.tscn<>uid://g7kgiua8uowq::::res://Checkpoint.tscn<>res://NPC's/NPC5.cs<>uid://cxcf8oynccs0w::::res://sprites/fruit.png<>res://Levels/Tutorial/PauseManager.cs<>res://Levels/Tutorial/InterfaceManager.cs<>res://Levels/Tutorial/DialogueManager.cs<>uid://8et7ufg3ws57::::res://Levels/Tutorial/interface_selection.tscn<>res://EnemyTest.cs<>uid://d077472vdgpfb::::res://sprites/knight.png
+nature-paltformer-tileset-16x16.png::CompressedTexture2D::4649183357168967042::1733888174::1733888372::1::::<><>::
+::res://Levels/Level 1 Forest/::1733888174
+Forest1.tscn::PackedScene::5320372162340888944::1733874106::0::1::::<><>::uid://g2cd5cw0c0te::::res://sprites/world_tileset.png<>uid://baild8wd4h110::::res://Player.tscn<>uid://d11jvo85ekqm5::::res://sprites/coin.png<>uid://g7kgiua8uowq::::res://Checkpoint.tscn<>uid://csnpxtufau0pe::::res://GunEnemy.tscn<>res://Characters/EnemyTest.cs<>uid://d077472vdgpfb::::res://sprites/knight.png<>uid://c3bmr4vyapi3b::::res://Characters/Enemy.tscn<>res://Levels/Tutorial/PauseManager.cs<>res://Levels/Tutorial/ToggleVisibilityonPause.cs<>res://Levels/Tutorial/Restart.cs<>res://Levels/Tutorial/Quit.cs<>res://Levels/Tutorial/NextPortal4.cs<>uid://btxio41jgr502::::res://NPC's/npc.tscn<>res://Levels/Tutorial/InterfaceManager.cs<>res://Levels/Tutorial/DialogueManager.cs<>uid://8et7ufg3ws57::::res://Levels/Tutorial/InterfaceSelection.tscn
+::res://Levels/Level 2 Forest Night/::1733888174
+Forest2.tscn::PackedScene::2187580801680212222::1733874106::0::1::::<><>::uid://bojp3u75sgtrm::::res://Night Background.png<>uid://g2cd5cw0c0te::::res://sprites/world_tileset.png<>uid://d11jvo85ekqm5::::res://sprites/coin.png<>uid://ge5dj5xf0cp7::::res://Use Root as Spikes.png<>uid://cq5fnqml1vwh8::::res://Ice tilesets.png<>uid://bt1g8y08f8hv::::res://sprites/(Dark)world_tileset (1).png<>uid://csnpxtufau0pe::::res://GunEnemy.tscn<>uid://g7kgiua8uowq::::res://Checkpoint.tscn<>res://Characters/EnemyTest.cs<>uid://d077472vdgpfb::::res://sprites/knight.png<>uid://baild8wd4h110::::res://Player.tscn<>res://Levels/Tutorial/PauseManager.cs<>res://Levels/Tutorial/ToggleVisibilityonPause.cs<>res://Levels/Tutorial/Restart.cs<>res://Levels/Tutorial/Quit.cs<>uid://c3bmr4vyapi3b::::res://Characters/Enemy.tscn<>uid://faioch42cwyx::::res://NPC's/npc_4.tscn<>res://Levels/Tutorial/InterfaceManager.cs<>res://Levels/Tutorial/DialogueManager.cs<>res://Levels/Tutorial/NextPortal5.cs
+::res://Levels/Tutorial/::1733888174
+DialogueManager.cs::CSharpScript::-1::1733888174::0::1::::<>Control<>::
+InterfaceManager.cs::CSharpScript::-1::1733888174::0::1::::<>CanvasLayer<>::
+InterfaceSelection.cs::CSharpScript::-1::1733888174::0::1::::<>Control<>::
+InterfaceSelection.tscn::PackedScene::2325701177840768724::1733874107::0::1::::<><>::res://Levels/Tutorial/InterfaceSelection.cs<>uid://ba8isre5838lb::::res://Levels/Tutorial/triangle2.png
+InterfaceSelectionObject.cs::CSharpScript::-1::1733881650::0::1::::<><>::
+interface_selection.tscn::PackedScene::2325701177840768724::1733874107::0::1::::<><>::res://Levels/Tutorial/InterfaceSelection.cs<>uid://ba8isre5838lb::::res://Levels/Tutorial/triangle2.png
+Main.tscn::PackedScene::1738054652879003942::1733874107::0::1::::<><>::uid://g2cd5cw0c0te::::res://sprites/world_tileset.png<>uid://c3bmr4vyapi3b::::res://Characters/Enemy.tscn<>uid://baild8wd4h110::::res://Player.tscn<>uid://g7kgiua8uowq::::res://Checkpoint.tscn<>res://Levels/Tutorial/PauseManager.cs<>res://Levels/Tutorial/ToggleVisibilityonPause.cs<>res://Levels/Tutorial/Restart.cs<>res://Levels/Tutorial/Quit.cs<>uid://csnpxtufau0pe::::res://GunEnemy.tscn<>res://Levels/Tutorial/NextPortal2.cs<>res://Characters/EnemyTest.cs<>uid://d077472vdgpfb::::res://sprites/knight.png
+NextLevelPortal1.cs::CSharpScript::-1::1733882102::0::1::::<>Area2D<>::
+NextPortal1.cs::CSharpScript::-1::1733874107::0::1::::<>Area2D<>::
+NextPortal2.cs::CSharpScript::-1::1733874107::0::1::::<>Area2D<>::
+NextPortal3.cs::CSharpScript::-1::1733874107::0::1::::<>Area2D<>::
+NextPortal4.cs::CSharpScript::-1::1733874107::0::1::::<>Area2D<>::
+NextPortal5.cs::CSharpScript::-1::1733874107::0::1::::<>Area2D<>::
+NextPortal6.cs::CSharpScript::-1::1733874107::0::1::::<>Area2D<>::
+NextPortal7.cs::CSharpScript::-1::1733874107::0::1::::<>Area2D<>::
+NPCDialogue.cs::CSharpScript::-1::1733874891::0::1::::<><>::
+PauseManager.cs::CSharpScript::-1::1733888174::0::1::::<>Node<>::
+Quit.cs::CSharpScript::-1::1733888174::0::1::::<>Button<>::
+Restart.cs::CSharpScript::-1::1733874107::0::1::::<>Button<>::
+Test Level.tscn::PackedScene::4818310872928970562::1733874107::0::1::::<><>::uid://g2cd5cw0c0te::::res://sprites/world_tileset.png<>uid://c3bmr4vyapi3b::::res://Characters/Enemy.tscn<>uid://baild8wd4h110::::res://Player.tscn<>res://Characters/EnemyTest.cs<>uid://d077472vdgpfb::::res://sprites/knight.png<>uid://g7kgiua8uowq::::res://Checkpoint.tscn<>res://Levels/Tutorial/PauseManager.cs<>res://Levels/Tutorial/ToggleVisibilityonPause.cs<>res://Levels/Tutorial/Restart.cs<>res://Levels/Tutorial/Quit.cs<>res://Levels/Tutorial/NextPortal1.cs<>uid://csnpxtufau0pe::::res://GunEnemy.tscn
+ToggleVisibilityonPause.cs::CSharpScript::-1::1733874107::0::1::::<>CanvasLayer<>::
+triangle2.png::CompressedTexture2D::2455063930293964459::1733888174::1733888372::1::::<><>::
+Tutorial3.tscn::PackedScene::5801979504261497202::1733874107::0::1::::<><>::res://Levels/Tutorial/DialogueManager.cs<>uid://g2cd5cw0c0te::::res://sprites/world_tileset.png<>uid://baild8wd4h110::::res://Player.tscn<>uid://g7kgiua8uowq::::res://Checkpoint.tscn<>res://Levels/Tutorial/PauseManager.cs<>res://Levels/Tutorial/ToggleVisibilityonPause.cs<>res://Levels/Tutorial/Restart.cs<>res://Levels/Tutorial/Quit.cs<>res://Levels/Tutorial/NextPortal3.cs<>res://Levels/Tutorial/InterfaceManager.cs<>uid://8et7ufg3ws57::::res://Levels/Tutorial/InterfaceSelection.tscn<>res://Characters/EnemyTest.cs<>uid://d077472vdgpfb::::res://sprites/knight.png
+::res://NPC's/::1733888174
+NPC2.cs::CSharpScript::-1::1733874107::0::1::::<>CharacterBody2D<>::
+NPC3.cs::CSharpScript::-1::1733874107::0::1::::<>CharacterBody2D<>::
+NPC4.cs::CSharpScript::-1::1733874107::0::1::::<>CharacterBody2D<>::
+NPC5.cs::CSharpScript::-1::1733888174::0::1::::<>CharacterBody2D<>::
+NPC.cs::CSharpScript::-1::1733874896::0::1::::<>CharacterBody2D<>::
+npc.tscn::PackedScene::3768001701975601005::1733874107::0::1::::<><>::res://NPC's/NPC.cs<>uid://e3pfmswrw0yf::::res://sprites/old man.png
+npc_2.tscn::PackedScene::7829971028010978078::1733874107::0::1::::<><>::res://NPC's/NPC2.cs<>uid://c37vw3kr1uad1::::res://sprites/ice lady.png
+npc_3.tscn::PackedScene::6712215886463797667::1733874107::0::1::::<><>::res://NPC's/NPC3.cs<>uid://bks0c51ayiaye::::res://sprites/hunter.png
+npc_4.tscn::PackedScene::351455072461106623::1733874107::0::1::::<><>::res://NPC's/NPC4.cs<>uid://d0p6n3i7cr5um::::res://sprites/fish man.png
+::res://sprites/::1733888174
+(Dark)world_tileset (1).png::CompressedTexture2D::111003149066605919::1733888174::1733888372::1::::<><>::
+bat.png::CompressedTexture2D::3062186531577478328::1733888174::1733888372::1::::<><>::
+coin.png::CompressedTexture2D::9038430549554868102::1733888174::1733888372::1::::<><>::
+enemy1.png::CompressedTexture2D::7998930859085105173::1733888174::1733888372::1::::<><>::
+enemy2.png::CompressedTexture2D::2201382232217497836::1733888174::1733888372::1::::<><>::
+fish man.png::CompressedTexture2D::8946855734907082580::1733888174::1733888372::1::::<><>::
+fruit.png::CompressedTexture2D::6391676815727401856::1733888174::1733888372::1::::<><>::
+hunter.png::CompressedTexture2D::3126991031951278708::1733888174::1733888372::1::::<><>::
+ice lady.png::CompressedTexture2D::6805504908604806496::1733888174::1733888372::1::::<><>::
+knight.png::CompressedTexture2D::8982039685367124519::1733888174::1733888372::1::::<><>::
+main jump.png::CompressedTexture2D::4019488381336032483::1733888174::1733888372::1::::<><>::
+main run.png::CompressedTexture2D::7785024374432879514::1733888174::1733888372::1::::<><>::
+old man.png::CompressedTexture2D::339478294636697369::1733888174::1733888372::1::::<><>::
+platforms.png::CompressedTexture2D::8231926218106742847::1733888174::1733888372::1::::<><>::
+slime_green.png::CompressedTexture2D::1632183963766273940::1733888174::1733888372::1::::<><>::
+slime_purple.png::CompressedTexture2D::7826308182378711363::1733888174::1733888372::1::::<><>::
+treeBoss.png::CompressedTexture2D::4809413124300883845::1733888174::1733888372::1::::<><>::
+world_tileset.png::CompressedTexture2D::476999632378264910::1733888174::1733888372::1::::<><>::
+::res://TextBox/::1733888174
+DialogueBox.cs::CSharpScript::-1::1733882098::0::1::::<>Control<>::
+dialogue_box.tscn::PackedScene::7102368553705806173::1733874107::0::1::::<><>::res://TextBox/DialogueBox.cs
+::res://UI/::1733888174
+Hud.cs::CSharpScript::-1::1733874107::0::1::::<>Control<>::
+hud.tscn::PackedScene::3811751405419748479::1733874107::0::1::::<><>::res://UI/Hud.cs

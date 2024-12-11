@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://g7kgiua8uowq"]
-
-[ext_resource type="Script" path="res://Checkpoint.cs" id="1_0tel4"]
-[ext_resource type="PackedScene" uid="uid://baild8wd4h110" path="res://Player.tscn" id="2_qnoo7"]
-
-[node name="Checkpoint" type="Node2D"]
-position = Vector2(112, 40)
-script = ExtResource("1_0tel4")
-playerScene = ExtResource("2_qnoo7")
