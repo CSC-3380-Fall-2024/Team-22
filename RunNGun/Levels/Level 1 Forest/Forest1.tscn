@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d11jvo85ekqm5" path="res://sprites/coin.png" id="2_uwnxw"]
 [ext_resource type="PackedScene" uid="uid://g7kgiua8uowq" path="res://Checkpoint.tscn" id="3_n55xx"]
 [ext_resource type="PackedScene" uid="uid://csnpxtufau0pe" path="res://GunEnemy.tscn" id="4_k4gd3"]
-[ext_resource type="Script" path="res://Characters/EnemyTest.cs" id="4_poofw"]
+[ext_resource type="Script" path="res://EnemyTest.cs" id="4_poofw"]
 [ext_resource type="Texture2D" uid="uid://d077472vdgpfb" path="res://sprites/knight.png" id="5_6c30w"]
 [ext_resource type="PackedScene" uid="uid://c3bmr4vyapi3b" path="res://Characters/Enemy.tscn" id="6_4tpwv"]
 [ext_resource type="Script" path="res://Levels/Tutorial/PauseManager.cs" id="8_6apek"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://btxio41jgr502" path="res://NPC's/npc.tscn" id="13_3c11f"]
 [ext_resource type="Script" path="res://Levels/Tutorial/InterfaceManager.cs" id="15_x6kok"]
 [ext_resource type="Script" path="res://Levels/Tutorial/DialogueManager.cs" id="16_8kw4t"]
-[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/InterfaceSelection.tscn" id="17_2tkvt"]
+[ext_resource type="PackedScene" uid="uid://8et7ufg3ws57" path="res://Levels/Tutorial/interface_selection.tscn" id="17_2tkvt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1hnpc"]
 texture = ExtResource("1_3gm4b")

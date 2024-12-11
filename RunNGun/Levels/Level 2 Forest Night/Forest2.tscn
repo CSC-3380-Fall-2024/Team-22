@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bt1g8y08f8hv" path="res://sprites/(Dark)world_tileset (1).png" id="5_jr5u4"]
 [ext_resource type="PackedScene" uid="uid://csnpxtufau0pe" path="res://GunEnemy.tscn" id="6_6r2lu"]
 [ext_resource type="PackedScene" uid="uid://g7kgiua8uowq" path="res://Checkpoint.tscn" id="7_516tn"]
-[ext_resource type="Script" path="res://Characters/EnemyTest.cs" id="8_oe1t1"]
+[ext_resource type="Script" path="res://EnemyTest.cs" id="8_oe1t1"]
 [ext_resource type="Texture2D" uid="uid://d077472vdgpfb" path="res://sprites/knight.png" id="9_2xgyh"]
 [ext_resource type="PackedScene" uid="uid://baild8wd4h110" path="res://Player.tscn" id="10_arwkm"]
 [ext_resource type="Script" path="res://Levels/Tutorial/PauseManager.cs" id="11_mf637"]

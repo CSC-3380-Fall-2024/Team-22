@@ -45,22 +45,5 @@ public partial class EnemyTest : CharacterBody2D
 				health -= 10;
 			}
 		}
-    }
-
-	public Godot.Collections.Dictionary<string, Variant> Save()
-	{
-		return new Godot.Collections.Dictionary<string, Variant>()
-		{
-			{ "Filename", SceneFilePath },
-			{ "Parent", GetParent().GetPath() },
-			{ "PosX", Position.X }, 
-			{ "PosY", Position.Y },
-			{ "MoveDir", moveDir},
-			{ "Health", health},
-			{ "FrontCast", frontCast},
-			{ "DownCasts", downCasts},
-		};
-	}
-
-	
+    }	
 }
